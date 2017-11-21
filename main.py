@@ -85,7 +85,7 @@ class principal(object):
 
 i = Tk()
 
-i.title('V 0.1')
+i.title('V 0.2')
 
 principal(i)
 
