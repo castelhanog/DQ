@@ -24,9 +24,9 @@ class principal(object):
         self.e2 = Entry(self.a)
         self.e2.grid(row = 5, column = 2, pady = 3)
 
-        self.l5 = Label(self.a, text = "", bg = color, pady = 3, font = font2)
+        self.l5 = Label(self.a, text = "", bg = color, font = font2)
         self.l5['bg'] = color
-        self.l5.grid(row = 6, column = 2)
+        self.l5.grid(row = 6, column = 2, pady = 3)
 
         self.b1 = Button(self.a, text ='Registra venda')
         self.b1.bind('<Button-1>', self.venda)
