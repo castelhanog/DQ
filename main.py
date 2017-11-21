@@ -10,12 +10,6 @@ class principal(object):
         self.a['bg'] = color
         self.dbs = shelve.open('selldb')
 
-        self.l0 = Radiobutton(self.a, text = 'Módulo Venda', value = 0)
-        self.l0.grid(row = 1, column = 1)
-
-        self.l01 = Radiobutton(self.a, text = 'Módulo Pedido', value = 1)
-        self.l01.grid(row = 1, column = 3)
-
         self.l1 = Label(self.a, text = 'Módulo de vendas', bg = color, fg = 'white', font = font1)
         self.l1.grid(row = 2, column = 2, pady = 3)
 
