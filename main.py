@@ -10,22 +10,22 @@ class principal(object):
         self.a['bg'] = color
         self.dbs = shelve.open('selldb')
 
-        self.l1 = Label(self.a, text = 'Módulo de vendas')
-        self.l1.grid(row = 1, column = 2)
+        self.l1 = Label(self.a, text = 'Módulo de vendas', bg = color, fg = 'white', font = ('Arial', '16', 'bold'))
+        self.l1.grid(row = 1, column = 2, pady = 3)
 
-        self.l2 = Label(self.a, text = 'Cliente')
-        self.l2.grid(row = 2, column = 2)
+        self.l2 = Label(self.a, text = 'Cliente', bg = color)
+        self.l2.grid(row = 2, column = 2, pady = 3)
 
         self.e1 = Entry(self.a)
-        self.e1.grid(row = 3, column = 2)
+        self.e1.grid(row = 3, column = 2, pady = 3)
 
-        self.l3 = Label(self.a, text = "Valor")
-        self.l3.grid(row = 4, column = 2)
+        self.l3 = Label(self.a, text = "Valor", bg = color)
+        self.l3.grid(row = 4, column = 2, pady = 3)
 
         self.e2 = Entry(self.a)
-        self.e2.grid(row = 5, column = 2)
+        self.e2.grid(row = 5, column = 2, pady = 3)
 
-        self.l5 = Label(self.a, text = "")
+        self.l5 = Label(self.a, text = "", bg = color, pady = 3)
         self.l5['bg'] = color
         self.l5.grid(row = 6, column = 2)
 
