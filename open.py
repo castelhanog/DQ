@@ -62,7 +62,8 @@ class Login(object):
 
     def novo(self, event):
         self.l2['text'] = 'Digite um novo usuário e nova senha'
-                
+        self.b1['state'] = 'disabled'
+        self.b2['text'] = 'Criar'
         c = self.e1.get()
         s = self.e2.get()
 
