@@ -61,7 +61,20 @@ class Login(object):
                 self.l5['text'] = 'Bem-vindo'
 
     def novo(self, event):
-        return None
+        self.l2['text'] = 'Digite um novo usuário e nova senha'
+                
+        c = self.e1.get()
+        s = self.e2.get()
+
+        c = c.upper()
+        s = s.upper()
+
+        if c in self.dbl:
+            self.l5['text'] = 'Usuário já cadastrado!'
+
+        elif c not in self.dbl:
+            self.dbl[c] = s
+            self.l5['text'] = 'Usuário cadastrado com sucesso'
 
 l = Tk()
 
