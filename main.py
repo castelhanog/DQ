@@ -12,13 +12,13 @@ class principal(object):
         self.l1 = Label(self.a, text = 'Módulo de vendas', bg = color, fg = 'white', font = font1)
         self.l1.grid(row = 1, column = 2, pady = 3)
 
-        self.l2 = Label(self.a, text = 'Cliente', bg = color)
+        self.l2 = Label(self.a, text = 'Cliente', bg = color, font = font3)
         self.l2.grid(row = 2, column = 2, pady = 3)
 
         self.e1 = Entry(self.a)
         self.e1.grid(row = 3, column = 2, pady = 3)
 
-        self.l3 = Label(self.a, text = "Valor", bg = color)
+        self.l3 = Label(self.a, text = "Valor", bg = color, font = font3)
         self.l3.grid(row = 4, column = 2, pady = 3)
 
         self.e2 = Entry(self.a)
