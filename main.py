@@ -68,7 +68,10 @@ class principal(object):
             self.l5['text'] = 'Usuário não encontrado'
         elif c in self.dbs:
             self.dbs[c] -= float(v)
-            self.l5['text'] = 'Valor de RS %.2f abatido do cliente %s' % (v,c)
+            if self.dbs[c] > 0:
+                self.l5['text'] = 'Valor de RS %.2f abatido do cliente %s' % (v,c)
+            elif self.dbs[c] < 0:
+                self.l5['text'] = 'Valor de RS %.2f abatido do cliente %s' % (v,c) +'\n ATENÇÂO! Saldo ficará negativo'
 
     def saldo(self, event):
         c = self.e1.get()
