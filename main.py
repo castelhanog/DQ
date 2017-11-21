@@ -4,6 +4,7 @@ from custom import *
 
 
 class principal(object):
+    
     def __init__(self, a):
         self.a = a
         self.a['bg'] = color
