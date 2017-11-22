@@ -44,6 +44,8 @@ class Login(object):
         self.b2.bind('<Return>', self.novo)
         self.b2.grid(row = 10, column = 2)
 
+        self.new = False
+
     def entrar(self, event):
         c = self.e1.get()
         s = self.e2.get()
@@ -61,9 +63,14 @@ class Login(object):
                 self.l5['text'] = 'Bem-vindo'
 
     def novo(self, event):
-        self.l2['text'] = 'Digite um novo usuário e nova senha'
-        self.b1['state'] = 'disabled'
-        self.b2['text'] = 'Criar'
+        if not self.new:
+            self.l2['text'] = 'Digite um novo usuário e nova senha'
+            self.b2['text'] = 'Criar'
+            self.new = True
+        else:
+            self.cria()
+
+    def cria(self):
         c = self.e1.get()
         s = self.e2.get()
 
@@ -73,9 +80,11 @@ class Login(object):
         if c in self.dbl:
             self.l5['text'] = 'Usuário já cadastrado!'
 
-        elif c not in self.dbl:
+        else:
             self.dbl[c] = s
+            self.b2['text'] = 'Novo Usuário'
             self.l5['text'] = 'Usuário cadastrado com sucesso'
+            self.new = False
 
 l = Tk()
 
