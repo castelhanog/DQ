@@ -1,6 +1,6 @@
 import shelve
 from tkinter import *
-from main import principal
+from sell import principal
 
 
 class Login(object):

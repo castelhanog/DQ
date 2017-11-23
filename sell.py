@@ -10,6 +10,10 @@ class principal(object):
         self.a['bg'] = color
         self.dbs = shelve.open('selldb')
 
+        self.telaprincipal()
+
+    def telaprincipal(self):
+
         self.l1 = Label(self.a, text = 'Módulo de vendas', bg = color, fg = 'white', font = font1)
         self.l1.grid(row = 2, column = 2, pady = 3)
 
@@ -83,11 +87,11 @@ class principal(object):
         elif c in self.dbs:
             self.l5['text'] = "%s tem um saldo de %.2f" % (c, self.dbs[c])
 
+if __name__ == '__main__':
+    i = Tk()
 
-i = Tk()
+    i.title('V 0.2')
 
-i.title('V 0.2')
+    principal(i)
 
-principal(i)
-
-i.mainloop()
+    i.mainloop()
