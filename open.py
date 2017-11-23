@@ -1,11 +1,17 @@
-from tkinter import *
 import shelve
+from tkinter import *
+from main import principal
+
 
 class Login(object):
     def __init__(self,b):
         self.b = b
         self.dbl = shelve.open('access')
         self.dbl['OPENER'] = 'SUPERACCESS'
+
+        self.telaprincipal()
+
+    def telaprincipal(self):
 
         self.l1 = Label(self.b, text = 'Bem - vindo!')
         self.l1.grid(row = 1, column = 1, columnspan = 2, padx = 5)
@@ -28,8 +34,8 @@ class Login(object):
         self.rb1 = Radiobutton(self.b, text = 'Módulo Venda', value = 0)
         self.rb1.grid(row = 7, column = 1, columnspan = 2)
 
-        self.rb1 = Radiobutton(self.b, text = 'Módulo Pedidos', value = 1)
-        self.rb1.grid(row = 8, column = 1, columnspan = 2)
+        self.rb2 = Radiobutton(self.b, text = 'Módulo Pedidos', value = 1)
+        self.rb2.grid(row = 8, column = 1, columnspan = 2)
 
         self.l5 = Label(self.b, text = "")
         self.l5.grid(row = 9, column = 1, columnspan = 2)
@@ -60,7 +66,24 @@ class Login(object):
             if self.dbl[c] != s:
                 self.l5['text'] = 'Senha incorreta!'
             elif self.dbl[c] == s:
-                self.l5['text'] = 'Bem-vindo'
+                self.muda()
+
+    def muda(self):
+        self.destroi()
+        principal(self.b)
+
+    def destroi(self):
+        self.l1.destroy()
+        self.l2.destroy()
+        self.l3.destroy()
+        self.l4.destroy()
+        self.l5.destroy()
+        self.e1.destroy()
+        self.e2.destroy()
+        self.b1.destroy()
+        self.b2.destroy()
+        self.rb1.destroy()
+        self.rb2.destroy()
 
     def novo(self, event):
         if not self.new:
