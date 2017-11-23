@@ -30,7 +30,10 @@ class Login(object):
 
         self.e2 = Entry(self.b, show = '*')
         self.e2.grid(row = 6, column = 1, columnspan = 2)
-
+        '''
+        Usar intvar() para atribuir a variable no radio button para que ele troque, bem como atribuir
+        value crescente para cada radio button criado.
+        '''
         self.r = IntVar()
         self.rb1 = Radiobutton(self.b, text = 'Módulo Venda', variable = self.r, value = 0)
         self.rb1.grid(row = 7, column = 1, columnspan = 2)
