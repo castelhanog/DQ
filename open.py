@@ -69,8 +69,10 @@ class Login(object):
         elif c in self.dbl:
             if self.dbl[c] != s:
                 self.l5['text'] = 'Senha incorreta!'
-            elif self.dbl[c] == s:
+            elif self.dbl[c] == s and (self.r.get() == 0):
                 self.muda()
+            elif self.dbl[c] == s and (self.r.get() == 1):
+                self.l5['text'] = 'Módulo indisponível'
 
     def muda(self):
         self.destroi()
