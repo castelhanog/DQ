@@ -31,10 +31,11 @@ class Login(object):
         self.e2 = Entry(self.b, show = '*')
         self.e2.grid(row = 6, column = 1, columnspan = 2)
 
-        self.rb1 = Radiobutton(self.b, text = 'Módulo Venda', value = 0)
+        self.r = IntVar()
+        self.rb1 = Radiobutton(self.b, text = 'Módulo Venda', variable = self.r, value = 0)
         self.rb1.grid(row = 7, column = 1, columnspan = 2)
 
-        self.rb2 = Radiobutton(self.b, text = 'Módulo Pedidos', value = 1)
+        self.rb2 = Radiobutton(self.b, text = 'Módulo Pedidos', variable = self.r, value = 1)
         self.rb2.grid(row = 8, column = 1, columnspan = 2)
 
         self.l5 = Label(self.b, text = "")
