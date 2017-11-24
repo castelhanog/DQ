@@ -117,6 +117,10 @@ class Login(object):
 
 l = Tk()
 
+l.title('Login')
+
+l.resizable(False, False)
+
 Login(l)
 
 l.mainloop()

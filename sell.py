@@ -92,6 +92,8 @@ if __name__ == '__main__':
 
     i.title('V 0.2')
 
+    i.resizable(False, False)
+
     principal(i)
 
     i.mainloop()
