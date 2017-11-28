@@ -93,7 +93,9 @@ class Pedidos(object):
                 self.l5['text'] = 'Pedido de Brownie para %s. Quantidade: %s' % (c, q)
 
     def gerapedido(self, event):
-        pass
+        for i in self.dbo1:
+            print('Pãozinho doce')
+            print(i + ':' + self.dbo1[i])
 
 z = Tk()
 z.title('V 0.2')
