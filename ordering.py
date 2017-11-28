@@ -6,7 +6,10 @@ class Pedidos(object):
     def __init__(self, c):
         self.c = c
         self.c['bg'] = color
-        self.dbo = shelve.open('order')
+        self.dbo1 = shelve.open('order1')
+        self.dbo2 = shelve.open('order2')
+        self.dbo3 = shelve.open('order3')
+        self.dbo4 = shelve.open('order4')
 
         self.telaprincipal()
 
@@ -57,8 +60,38 @@ class Pedidos(object):
         self.b2.grid(row=10, column=2, padx=3)
 
     def gravapedido(self, event):
-        pass
-    
+        c = self.e1.get()
+        q = self.e2.get()
+
+        if self.p.get() == 0:
+            if c not in self.dbo1:
+                self.dbo1[c] = q
+                self.l5['text'] = 'Pedido de Pãozinho simples para %s. Quantidade: %s' % (c,q)
+            elif c in self.dbo1:
+                self.dbo1[c] += q
+                self.l5['text'] = 'Pedido de Pãozinho simples para %s. Quantidade: %s' % (c, q)
+        elif self.p.get() == 1:
+            if c not in self.dbo2:
+                self.dbo2[c] = q
+                self.l5['text'] = 'Pedido de Pãozinho doce recheado para %s. Quantidade: %s' % (c, q)
+            elif c in self.dbo2:
+                self.dbo2[c] += q
+                self.l5['text'] = 'Pedido de Pãozinho doce recheado para %s. Quantidade: %s' % (c, q)
+        elif self.p.get() == 2:
+            if c not in self.dbo3:
+                self.dbo3[c] = q
+                self.l5['text'] = 'Pedido de Pãozinho salgado recheado para %s. Quantidade: %s' % (c, q)
+            elif c in self.dbo3:
+                self.dbo3[c] += q
+                self.l5['text'] = 'Pedido de Pãozinho salgado recheado para %s. Quantidade: %s' % (c, q)
+        elif self.p.get() == 3:
+            if c not in self.dbo4:
+                self.dbo4[c] = q
+                self.l5['text'] = 'Pedido de Brownie para %s. Quantidade: %s' % (c, q)
+            elif c in self.dbo4:
+                self.dbo4[c] = q
+                self.l5['text'] = 'Pedido de Brownie para %s. Quantidade: %s' % (c, q)
+
     def gerapedido(self, event):
         pass
 
