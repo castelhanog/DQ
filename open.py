@@ -1,7 +1,7 @@
 import shelve
 from tkinter import *
+from custom import *
 from sell import principal
-
 
 class Login(object):
     def __init__(self,b):
