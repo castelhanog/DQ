@@ -8,11 +8,6 @@ class Pedidos(object):
         self.c['bg'] = color
         self.dbo = shelve.open('order')
 
-        self.Paozinhosimples = {}
-        self.Paozinhodocerecheado = {}
-        self.Paozinhosalgadorecheado = {}
-        self.Brownie = {}
-
         self.telaprincipal()
 
     def telaprincipal(self):
@@ -62,38 +57,8 @@ class Pedidos(object):
         self.b2.grid(row=10, column=2, padx=3)
 
     def gravapedido(self, event):
-        c = self.e1.get()
-        q = self.e2.get()
-
-        if self.p.get() == 0:
-            if c not in self.Paozinhosimples:
-                self.Paozinhosimples[c] = q
-                self.l5['text'] = 'Pedido de %s registrado para %s Quantidade: %s' % ('Pãozinho doce simples', c, q)
-            elif c in self.Paozinhosimples:
-                self.Paozinhosimples[c] += q
-                self.l5['text'] = 'Pedido de %s registrado para %s Quantidade: %s' % ('Pãozinho doce simples', c, q)
-        elif self.p.get() == 1:
-            if c not in self.Paozinhodocerecheado:
-                self.Paozinhodocerecheado[c] = q
-                self.l5['text'] = 'Pedido de %s registrado para %s Quantidade: %s' % ('Pãozinho doce recheado', c, q)
-            elif c in self.Paozinhodocerecheado:
-                self.Paozinhodocerecheado[c] = q
-                self.l5['text'] = 'Pedido de %s registrado para %s Quantidade: %s' % ('Pãozinho doce recheado', c, q)
-        elif self.p.get() == 2:
-            if c not in self.Paozinhosalgadorecheado:
-                self.Paozinhosalgadorecheado[c] = q
-                self.l5['text'] = 'Pedido de %s registrado para %s Quantidade: %s' % ('Pãozinho salgado recheado', c, q)
-            elif c in self.Paozinhosalgadorecheado:
-                self.Paozinhosalgadorecheado[c] = q
-                self.l5['text'] = 'Pedido de %s registrado para %s Quantidade: %s' % ('Pãozinho salgado recheado', c, q)
-        elif self.p.get() == 3:
-            if c not in self.Brownie:
-                self.Brownie[c] = q
-                self.l5['text'] = 'Pedido de %s registrado para %s Quantidade: %s' % ('Brownie', c, q)
-            elif c in self.Brownie:
-                self.Brownie[c] = q
-                self.l5['text'] = 'Pedido de %s registrado para %s Quantidade: %s' % ('Brownie', c, q)
-
+        pass
+    
     def gerapedido(self, event):
         pass
 
