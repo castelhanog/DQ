@@ -115,6 +115,7 @@ class Pedidos(object):
             for i in self.dbo4:
                 arquivo.write('%s: %s\n' % (i, str(self.dbo4[i])))
         self.l5['text'] = 'Pedido gerado com sucesso!'
+        self.l5['font'] = font2
         arquivo.close()
         self.dbo1.clear()
         self.dbo2.clear()
