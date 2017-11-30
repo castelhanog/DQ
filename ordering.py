@@ -121,8 +121,9 @@ class Pedidos(object):
         self.dbo3.clear()
         self.dbo4.clear()
 
-z = Tk()
-z.title('V 0.2')
-z.resizable(False, False)
-Pedidos(z)
-z.mainloop()
+if __name__ == '__main__':
+    z = Tk()
+    z.title('V 0.2')
+    z.resizable(False, False)
+    Pedidos(z)
+    z.mainloop()
