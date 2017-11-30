@@ -2,10 +2,12 @@ import shelve
 from tkinter import *
 from custom import *
 from sell import principal
+from ordering import Pedidos
 
 class Login(object):
     def __init__(self,b):
         self.b = b
+        self.b['bg'] = color
         self.dbl = shelve.open('access')
         self.dbl['OPENER'] = 'SUPERACCESS'
 
@@ -13,19 +15,19 @@ class Login(object):
 
     def telaprincipal(self):
 
-        self.l1 = Label(self.b, text = 'Bem - vindo!')
+        self.l1 = Label(self.b, text = 'Bem - vindo!', bg = color, fg = 'white', font = font1)
         self.l1.grid(row = 1, column = 1, columnspan = 2, padx = 5)
 
-        self.l2 = Label(self.b, text = 'Faça login e escolha um modo para entrar')
+        self.l2 = Label(self.b, text = 'Faça login e escolha um modo para entrar', bg = color, fg = 'white', font = font3)
         self.l2.grid(row = 2, column = 1, columnspan = 2, padx = 5)
 
-        self.l3 = Label(self.b, text = 'Usuário')
+        self.l3 = Label(self.b, text = 'Usuário', bg = color, fg = 'white', font = font3)
         self.l3.grid(row = 3, column = 1, columnspan = 2, padx =3)
 
         self.e1 = Entry(self.b)
         self.e1.grid(row = 4, column = 1, columnspan = 2)
 
-        self.l4 = Label(self.b, text = 'Senha')
+        self.l4 = Label(self.b, text = 'Senha', bg = color, fg = 'white', font = font3)
         self.l4.grid(row = 5, column = 1, columnspan = 2, padx = 3)
 
         self.e2 = Entry(self.b, show = '*')
@@ -35,13 +37,13 @@ class Login(object):
         value crescente para cada radio button criado.
         '''
         self.r = IntVar()
-        self.rb1 = Radiobutton(self.b, text = 'Módulo Venda', variable = self.r, value = 0)
+        self.rb1 = Radiobutton(self.b, text = 'Módulo Venda', variable = self.r, value = 0, bg = color)
         self.rb1.grid(row = 7, column = 1, columnspan = 2)
 
-        self.rb2 = Radiobutton(self.b, text = 'Módulo Pedidos', variable = self.r, value = 1)
+        self.rb2 = Radiobutton(self.b, text = 'Módulo Pedidos', variable = self.r, value = 1, bg = color)
         self.rb2.grid(row = 8, column = 1, columnspan = 2)
 
-        self.l5 = Label(self.b, text = "")
+        self.l5 = Label(self.b, text = "", bg = color, fg = 'white', font = font2)
         self.l5.grid(row = 9, column = 1, columnspan = 2)
 
         self.b1 = Button(self.b, text = 'Entrar')
@@ -72,11 +74,15 @@ class Login(object):
             elif self.dbl[c] == s and (self.r.get() == 0):
                 self.muda()
             elif self.dbl[c] == s and (self.r.get() == 1):
-                self.l5['text'] = 'Módulo indisponível'
+                self.muda1()
 
     def muda(self):
         self.destroi()
         principal(self.b)
+
+    def muda1(self):
+        self.destroi()
+        Pedidos(self.b)
 
     def destroi(self):
         self.l1.destroy()
