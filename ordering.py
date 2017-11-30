@@ -93,10 +93,15 @@ class Pedidos(object):
                 self.l5['text'] = 'Pedido de Brownie para %s. Quantidade: %s' % (c, q)
 
     def gerapedido(self, event):
-        for i in self.dbo1:
-            print('Pãozinho doce')
-            print(i + ':' + self.dbo1[i])
+        arquivo = open('Pedido.txt', 'w')
 
+        if len(self.dbo1) > 0:
+            arquivo.write('Pãozinho simples\n\n\n')
+
+            for i in self.dbo1:
+                arquivo.write('%s: %s\n' % (i, str(self.dbo1[i])))
+
+        arquivo.close()
 z = Tk()
 z.title('V 0.2')
 z.resizable(False, False)
