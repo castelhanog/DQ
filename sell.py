@@ -43,7 +43,7 @@ class principal(object):
         self.b2.bind('<Return>', self.abate)
         self.b2.grid(row = 8, column = 2)
 
-        self.b3 = Button(self.a, text = 'Ver saldo')
+        self.b3 = Button(self.a, text = 'Clientes e Saldos')
         self.b3.bind('<Button-1>', self.saldo)
         self.b3.bind('<Return>', self.saldo)
         self.b3.grid(row = 8, column = 3)
@@ -79,13 +79,15 @@ class principal(object):
                 self.l5['text'] = 'Valor de RS %.2f abatido do cliente %s' % (v,c) +'\n ATENÇÂO! Saldo ficará negativo'
 
     def saldo(self, event):
-        c = self.e1.get()
-        c = c.upper()
+        self.saldo = Tk()
+        self.saldo.title('Clientes e Saldos')
 
-        if c not in self.dbs:
-            self.l5['text'] = "Usuário não encontrado no cadastro"
-        elif c in self.dbs:
-            self.l5['text'] = "%s tem um saldo de %.2f" % (c, self.dbs[c])
+        self.t = Text(self.saldo)
+        self.t.pack()
+
+        for i in self.dbs:
+            self.t.insert(INSERT, '%s: R$ %s\n' % (i, str(self.dbs[i])))
+            print(i, str(self.dbs[i]))
 
 if __name__ == '__main__':
     i = Tk()
