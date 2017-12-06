@@ -87,7 +87,6 @@ class principal(object):
 
         for i in self.dbs:
             self.t.insert(INSERT, '%s: R$ %s\n' % (i, str(self.dbs[i])))
-            print(i, str(self.dbs[i]))
 
 if __name__ == '__main__':
     i = Tk()
