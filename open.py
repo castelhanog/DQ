@@ -1,8 +1,10 @@
 import shelve
 from tkinter import *
 from custom import *
+from connection import Conecta
 from sell import principal
 from ordering import Pedidos
+
 
 class Login(object):
     def __init__(self,b):
@@ -112,14 +114,19 @@ class Login(object):
         c = c.upper()
         s = s.upper()
 
-        if c in self.dbl:
-            self.l5['text'] = 'Usuário já cadastrado!'
+        if c or s !="":
 
+            self.c = Conecta()
+            self.dados = self.c.ledadosUsuarios(c,s)
+
+            if c == self.dados[2]:
+                self.l5['text'] = 'Usuário já cadastrado!'
+            else:
+                self.c.insereDadosUsuarios(c,s)
+                self.l5['text'] = 'Usuário cadastrado com sucesso'
+                self.new = False
         else:
-            self.dbl[c] = s
-            self.b2['text'] = 'Novo Usuário'
-            self.l5['text'] = 'Usuário cadastrado com sucesso'
-            self.new = False
+               self.l5['text'] = 'Preencha os campos de usuário e senha'
 
 l = Tk()
 
