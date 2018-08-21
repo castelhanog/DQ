@@ -66,23 +66,27 @@ class Login(object):
 
         c = c.upper()
         s = s.upper()
-
+        #21-08-18 erro para logar.... identificação de casos de erro
         self.c = Conecta()
         #lembrar de colocar o comando sql ao chamar o método abaixo
-        self.loga = self.c.ledados('SELECT * FROM usuario')
+        self.loga = self.c.ledados('SELECT login FROM usuario')
+        print(self.loga)
         for i in self.loga:
+            print(i)
             if c == "":
                 self.l5['text'] = 'Favor informar o usuário'
                 break #não esquecer do break em todas condições
-            elif c == i[2]:
+            elif c in i:
+                print('login : ', c)
                 if s == "":
                     self.l5['text'] = 'Informe a senha'
                     break
-                elif s != i[3]:
+                elif s != i:
                     self.l5['text'] = 'Senha incorreta!'
                     break
                 elif s == i[3] and (self.r.get() == 0):
                     self.muda()
+                    print('senha : ', s)
                     break
                 elif s == i[3] and (self.r.get() == 1):
                     self.muda1()
