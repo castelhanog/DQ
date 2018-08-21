@@ -70,17 +70,27 @@ class Login(object):
         self.c = Conecta()
         #lembrar de colocar o comando sql ao chamar o método abaixo
         self.loga = self.c.ledados('SELECT * FROM usuario')
-
         for i in self.loga:
-            if c == i[2]:
-                print('login : ', c)
-                if s != i[3]:
+            if c == "":
+                self.l5['text'] = 'Favor informar o usuário'
+                break #não esquecer do break em todas condições
+            elif c == i[2]:
+                if s == "":
+                    self.l5['text'] = 'Informe a senha'
+                    break
+                elif s != i[3]:
                     self.l5['text'] = 'Senha incorreta!'
+                    break
                 elif s == i[3] and (self.r.get() == 0):
                     self.muda()
-                    print('senha : ', s)
+                    break
                 elif s == i[3] and (self.r.get() == 1):
                     self.muda1()
+                    break
+            else:
+                self.l5['text'] = 'Usuário não encontrado'
+                break #senão será exibido isso independente de qualquer coisa
+
 
         '''
         if c in i[2]:
