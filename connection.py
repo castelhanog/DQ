@@ -22,14 +22,10 @@ class Conecta(object):
 
         self.comita()
 
-    def ledadosUsuarios(self, login, senha):
+    def ledados(self, sql):
         self.defineCursor()
-        self.cursor.execute("""
-        SELECT * FROM usuario
-        """)
-
-        for i in self.cursor.fetchall():
-                return i
+        self.cursor.execute(sql)
+        return self.cursor.fetchall()
 
 
     def comita(self):

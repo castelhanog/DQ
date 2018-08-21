@@ -67,16 +67,31 @@ class Login(object):
         c = c.upper()
         s = s.upper()
 
-        if c not in self.dbl:
-            self.l5['text'] = 'Usuário não encontrado!'
+        self.c = Conecta()
+        #lembrar de colocar o comando sql ao chamar o método abaixo
+        self.loga = self.c.ledados('SELECT * FROM usuario')
 
-        elif c in self.dbl:
-            if self.dbl[c] != s:
-                self.l5['text'] = 'Senha incorreta!'
-            elif self.dbl[c] == s and (self.r.get() == 0):
-                self.muda()
-            elif self.dbl[c] == s and (self.r.get() == 1):
-                self.muda1()
+        for i in self.loga:
+            if c == i[2]:
+                print('login : ', c)
+                if s != i[3]:
+                    self.l5['text'] = 'Senha incorreta!'
+                elif s == i[3] and (self.r.get() == 0):
+                    self.muda()
+                    print('senha : ', s)
+                elif s == i[3] and (self.r.get() == 1):
+                    self.muda1()
+
+        '''
+        if c in i[2]:
+            self.l5['text'] = 'Senha incorreta!'
+        elif self.dados[3] == s and (self.r.get() == 0):
+            self.muda()
+        elif self.dados[3] == s and (self.r.get() == 1):
+            self.muda1()
+        else:
+            self.l5['text'] = 'Usuário não encontrado!'
+'''
 
     def muda(self):
         self.destroi()
@@ -114,19 +129,19 @@ class Login(object):
         c = c.upper()
         s = s.upper()
 
-        if c or s !="":
+        #if c or s !="":
 
-            self.c = Conecta()
-            self.dados = self.c.ledadosUsuarios(c,s)
+        self.c = Conecta()
+        self.dados = self.c.ledadosUsuarios()
 
-            if c == self.dados[2]:
-                self.l5['text'] = 'Usuário já cadastrado!'
-            else:
-                self.c.insereDadosUsuarios(c,s)
-                self.l5['text'] = 'Usuário cadastrado com sucesso'
-                self.new = False
+        if c in self.dados[2]:
+            self.l5['text'] = 'Usuário já cadastrado!'
         else:
-               self.l5['text'] = 'Preencha os campos de usuário e senha'
+            self.c.insereDadosUsuarios(c,s)
+            self.l5['text'] = 'Usuário cadastrado com sucesso'
+            self.new = False
+        #else:
+               #self.l5['text'] = 'Preencha os campos de usuário e senha'
 
 l = Tk()
 
