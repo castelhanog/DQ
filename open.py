@@ -1,3 +1,4 @@
+import time
 from tkinter import *
 from custom import *
 from connection import Conecta
@@ -43,17 +44,17 @@ class Login(object):
         self.rb2.grid(row = 8, column = 1, columnspan = 2)
 
         self.l5 = Label(self.b, text = "", bg = color, fg = 'white', font = font2)
-        self.l5.grid(row = 9, column = 1, columnspan = 2)
+        self.l5.grid(row = 11, column = 1, columnspan = 2)
 
         self.b1 = Button(self.b, text = 'Entrar')
         self.b1.bind('<Button-1>', self.entrar)
         self.b1.bind('<Return>', self.entrar)
-        self.b1.grid(row = 10, column = 1)
+        self.b1.grid(row = 12, column = 1)
 
         self.b2 = Button(self.b, text = 'Novo usuário')
         self.b2.bind('<Button-1>', self.novo)
         self.b2.bind('<Return>', self.novo)
-        self.b2.grid(row = 10, column = 2)
+        self.b2.grid(row = 12, column = 2)
 
         self.new = False
 
@@ -71,13 +72,11 @@ class Login(object):
             self.c = Conecta()
             #lembrar de colocar o comando sql ao chamar o método abaixo
             self.loga = self.c.ledados('SELECT * FROM usuario')
-            print(self.loga)
             for i in self.loga:
+                i = list(i)
                 if c in i:
-                    print('login : ', c)
                     if s == i[3] and (self.r.get() == 0):
                         self.muda()
-                        print('senha : ', s)
                         break
                     elif s == i[3] and (self.r.get() == 1):
                         self.muda1()
@@ -111,30 +110,41 @@ class Login(object):
 
     def novo(self, event):
         if not self.new:
+            self.rb1.destroy()
+            self.rb2.destroy()
             self.l2['text'] = 'Digite um novo usuário e nova senha'
             self.b2['text'] = 'Criar'
+            self.l5 = Label(self.b, text = "Nome de usuário", bg = color, fg = 'white', font = font2)
+            self.l5.grid(row=9, column=1, columnspan=2)
+            self.e3 = Entry(self.b, show='')
+            self.e3.grid(row=10, column=1, columnspan=2)
             self.new = True
         else:
             self.cria()
 
     def cria(self):
+        n = self.e3.get()
         c = self.e1.get()
         s = self.e2.get()
 
+        n = n.upper()
         c = c.upper()
         s = s.upper()
-
-        #if c or s !="":
 
         self.c = Conecta()
         self.dados = self.c.ledados('SELECT login FROM usuario')
 
-        if c in self.dados:
-            self.l5['text'] = 'Usuário já cadastrado!'
-        else:
-            self.c.insereDadosUsuarios(c,s)
-            self.l5['text'] = 'Usuário cadastrado com sucesso'
-            self.new = False
+        for i in self.dados:
+            i = list(i)
+            if c in i:
+                print(c)
+                print(i)
+                self.l5['text'] = 'Usuário já cadastrado!'
+                break
+            else:
+                self.c.insereDadosUsuarios(n,c,s)
+                self.l5['text'] = 'Usuário cadastrado com sucesso'
+                self.new = False
 
 l = Tk()
 
