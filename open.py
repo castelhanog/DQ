@@ -1,4 +1,3 @@
-import shelve
 from tkinter import *
 from custom import *
 from connection import Conecta
@@ -10,8 +9,6 @@ class Login(object):
     def __init__(self,b):
         self.b = b
         self.b['bg'] = color
-        self.dbl = shelve.open('access')
-        self.dbl['OPENER'] = 'SUPERACCESS'
 
         self.telaprincipal()
 
@@ -39,10 +36,10 @@ class Login(object):
         value crescente para cada radio button criado.
         '''
         self.r = IntVar()
-        self.rb1 = Radiobutton(self.b, text = 'Módulo Venda', variable = self.r, value = 0, bg = color)
+        self.rb1 = Radiobutton(self.b, text = 'Módulo Venda', variable = self.r, value = 0, bg = color , font = font3)
         self.rb1.grid(row = 7, column = 1, columnspan = 2)
 
-        self.rb2 = Radiobutton(self.b, text = 'Módulo Pedidos', variable = self.r, value = 1, bg = color)
+        self.rb2 = Radiobutton(self.b, text = 'Módulo Pedidos', variable = self.r, value = 1, bg = color, font = font3)
         self.rb2.grid(row = 8, column = 1, columnspan = 2)
 
         self.l5 = Label(self.b, text = "", bg = color, fg = 'white', font = font2)
@@ -91,17 +88,6 @@ class Login(object):
                     self.l5['text'] = 'Usuário não encontrado!'
 
 
-        '''
-        if c in i[2]:
-            self.l5['text'] = 'Senha incorreta!'
-        elif self.dados[3] == s and (self.r.get() == 0):
-            self.muda()
-        elif self.dados[3] == s and (self.r.get() == 1):
-            self.muda1()
-        else:
-            self.l5['text'] = 'Usuário não encontrado!'
-'''
-
     def muda(self):
         self.destroi()
         principal(self.b)
@@ -149,8 +135,6 @@ class Login(object):
             self.c.insereDadosUsuarios(c,s)
             self.l5['text'] = 'Usuário cadastrado com sucesso'
             self.new = False
-        #else:
-               #self.l5['text'] = 'Preencha os campos de usuário e senha'
 
 l = Tk()
 
