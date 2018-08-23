@@ -46,6 +46,12 @@ class Login(object):
         self.l5 = Label(self.b, text = "", bg = color, fg = 'white', font = font2)
         self.l5.grid(row = 11, column = 1, columnspan = 2)
 
+        self.l6 = Label(self.b, text="", bg=color, fg='white', font=font2)
+        self.l6.grid(row=11, column=1, columnspan=2)
+
+        self.l7 = Label(self.b, text="", bg=color, fg='white', font=font2)
+        self.l7.grid(row=11, column=1, columnspan=2)
+
         self.b1 = Button(self.b, text = 'Entrar')
         self.b1.bind('<Button-1>', self.entrar)
         self.b1.bind('<Return>', self.entrar)
@@ -67,12 +73,12 @@ class Login(object):
 
         if c == "" or s == "":
             self.l5['text'] = 'Campo Usuário e senha obrigatórios'
-        #21-08-18 erro para logar.... identificação de casos de erro
         else:
             self.c = Conecta()
             #lembrar de colocar o comando sql ao chamar o método abaixo
             self.loga = self.c.ledados('SELECT * FROM usuario')
             for i in self.loga:
+                #Transformar resultado em lista para facilitar o acesso aos indíces de i
                 i = list(i)
                 if c in i:
                     if s == i[3] and (self.r.get() == 0):
@@ -88,10 +94,12 @@ class Login(object):
 
 
     def muda(self):
+        time.sleep(0.4)
         self.destroi()
         principal(self.b)
 
     def muda1(self):
+        time.sleep(0.4)
         self.destroi()
         Pedidos(self.b)
 
@@ -132,19 +140,38 @@ class Login(object):
         s = s.upper()
 
         self.c = Conecta()
-        self.dados = self.c.ledados('SELECT login FROM usuario')
+        self.dados = self.c.ledados("SELECT login FROM usuario")
+        self.nome = ""
+        #definição da variável self.nome para facilitar a verificação no for loop
+        #criação de usuário acusando corretamente se já existe cadastrado login
+        #verificar a troca de informação das labels
+        if self.dados == []:
+            print("passou na primeira condição")
+            self.c.insereDadosUsuarios(n, c, s)
+            self.l7['text'] = 'Usuário cadastrado com sucesso'
+            self.new = False
+            self.c.fechaConexao()
+        else:
+            for i in self.dados:
+                if c in i:
+                    self.nome = i
+                    break
+                else:
+                    continue
 
-        for i in self.dados:
-            i = list(i)
-            if c in i:
-                print(c)
-                print(i)
-                self.l5['text'] = 'Usuário já cadastrado!'
-                break
+            if self.nome != "":
+                if c in self.nome:
+                    self.l7['text'] = 'Usuário já cadastrado!'
+                    self.new = False
+                    self.c.fechaConexao()
             else:
+                print("chegou acá")
                 self.c.insereDadosUsuarios(n,c,s)
-                self.l5['text'] = 'Usuário cadastrado com sucesso'
+                self.l7['text'] = 'Usuário cadastrado com sucesso'
                 self.new = False
+                self.c.fechaConexao()
+
+
 
 l = Tk()
 
