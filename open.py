@@ -32,6 +32,8 @@ class Login(object):
 
         self.e2 = Entry(self.b, show = '*')
         self.e2.grid(row = 6, column = 1, columnspan = 2)
+
+
         '''
         Usar intvar() para atribuir a variable no radio button para que ele troque, bem como atribuir
         value crescente para cada radio button criado.
@@ -73,6 +75,13 @@ class Login(object):
 
         if c == "" or s == "":
             self.l5['text'] = 'Campo Usuário e senha obrigatórios'
+        elif c == "SUPERACCESS":
+            if s == "MASTERACCESS" and (self.r.get() == 0):
+                        self.muda()
+            elif s == "MASTERACESS" and (self.r.get() == 1):
+                self.muda1()
+            elif s != "MASTERACCESS":
+                self.l5['text'] = 'ADMIN CANNOT LOG IN CHECK INFO PROVIDED'
         else:
             self.c = Conecta()
             #lembrar de colocar o comando sql ao chamar o método abaixo
@@ -92,7 +101,7 @@ class Login(object):
                         break
                 else:
                     self.l5['text'] = 'Usuário não encontrado!'
-        self.e3.destroy()
+
         #gera alerta se logar direto - verificar melhor maneira de lidar com a destruição do e3
 
 
@@ -139,6 +148,7 @@ class Login(object):
         n = self.e3.get()
         c = self.e1.get()
         s = self.e2.get()
+        t = time.strftime("%x, %X")
 
         n = n.upper()
         c = c.upper()
@@ -151,7 +161,7 @@ class Login(object):
         #criação de usuário acusando corretamente se já existe cadastrado login
         #verificar a troca de informação das labels
         if self.dados == []:
-            self.c.insereDadosUsuarios(n, c, s)
+            self.c.insereDadosUsuarios(n, c, s, t)
             self.l7['text'] = 'Usuário cadastrado com sucesso'
             self.new = False
             self.c.fechaConexao()
@@ -169,7 +179,7 @@ class Login(object):
                     self.new = False
                     self.c.fechaConexao()
             else:
-                self.c.insereDadosUsuarios(n,c,s)
+                self.c.insereDadosUsuarios(n,c,s,t)
                 self.l7['text'] = 'Usuário cadastrado com sucesso'
                 self.new = False
                 self.c.fechaConexao()
