@@ -89,8 +89,11 @@ class Login(object):
                         break
                     elif s != i[3]:
                         self.l5['text'] = 'Senha incorreta!'
+                        break
                 else:
                     self.l5['text'] = 'Usuário não encontrado!'
+        self.e3.destroy()
+        #gera alerta se logar direto - verificar melhor maneira de lidar com a destruição do e3
 
 
     def destroi(self):
@@ -103,7 +106,6 @@ class Login(object):
         self.l7.destroy()
         self.e1.destroy()
         self.e2.destroy()
-        self.e3.destroy()
         self.b1.destroy()
         self.b2.destroy()
         self.rb1.destroy()
@@ -149,7 +151,6 @@ class Login(object):
         #criação de usuário acusando corretamente se já existe cadastrado login
         #verificar a troca de informação das labels
         if self.dados == []:
-            print("passou na primeira condição")
             self.c.insereDadosUsuarios(n, c, s)
             self.l7['text'] = 'Usuário cadastrado com sucesso'
             self.new = False
@@ -168,7 +169,6 @@ class Login(object):
                     self.new = False
                     self.c.fechaConexao()
             else:
-                print("chegou acá")
                 self.c.insereDadosUsuarios(n,c,s)
                 self.l7['text'] = 'Usuário cadastrado com sucesso'
                 self.new = False
