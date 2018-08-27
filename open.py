@@ -102,7 +102,7 @@ class Login(object):
                 else:
                     self.l5['text'] = 'Usuário não encontrado!'
 
-        #gera alerta se logar direto - verificar melhor maneira de lidar com a destruição do e3
+        
 
 
     def destroi(self):
