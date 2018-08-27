@@ -65,7 +65,6 @@ class principal(object):
         else:
             for i in self.dados:
                 if c in i:
-                    print("True")
                     saldo = self.v.ledados("SELECT saldo FROM cliente_saldo WHERE cliente = ?", (c,))
                     print(saldo[0])
 
@@ -76,7 +75,7 @@ class principal(object):
                     saldo1 += float(v)
                     nv = str(saldo1)
                     print(nv, type(nv))
-                    self.v.executaUpdate("UPDATE cliente_saldo SET saldo = ?", (nv,))
+                    self.v.executaUpdate("UPDATE cliente_saldo SET saldo = ? WHERE cliente = ?", (nv, c,))
                     self.v.fechaConexao()
                     time.sleep(0.3)
                     self.l5['text'] = 'Venda valor de R$ %.2f registrada para %s' % (v, c)
