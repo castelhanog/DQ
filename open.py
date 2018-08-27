@@ -93,6 +93,22 @@ class Login(object):
                     self.l5['text'] = 'Usuário não encontrado!'
 
 
+    def destroi(self):
+        self.l1.destroy()
+        self.l2.destroy()
+        self.l3.destroy()
+        self.l4.destroy()
+        self.l5.destroy()
+        self.l6.destroy()
+        self.l7.destroy()
+        self.e1.destroy()
+        self.e2.destroy()
+        self.e3.destroy()
+        self.b1.destroy()
+        self.b2.destroy()
+        self.rb1.destroy()
+        self.rb2.destroy()
+
     def muda(self):
         time.sleep(0.4)
         self.destroi()
@@ -102,19 +118,6 @@ class Login(object):
         time.sleep(0.4)
         self.destroi()
         Pedidos(self.b)
-
-    def destroi(self):
-        self.l1.destroy()
-        self.l2.destroy()
-        self.l3.destroy()
-        self.l4.destroy()
-        self.l5.destroy()
-        self.e1.destroy()
-        self.e2.destroy()
-        self.b1.destroy()
-        self.b2.destroy()
-        self.rb1.destroy()
-        self.rb2.destroy()
 
     def novo(self, event):
         if not self.new:
