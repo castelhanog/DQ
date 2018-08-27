@@ -178,11 +178,13 @@ class Login(object):
                     self.l7['text'] = 'Usuário já cadastrado!'
                     self.new = False
                     self.c.fechaConexao()
+                    self.e3.destroy()
             else:
                 self.c.insereDadosUsuarios(n,c,s,t)
                 self.l7['text'] = 'Usuário cadastrado com sucesso'
                 self.new = False
                 self.c.fechaConexao()
+                self.e3.destroy()
 
 
 
