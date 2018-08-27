@@ -5,7 +5,7 @@ class Conecta(object):
         self.conect()
 
     def conect(self):
-        self.con = sqlite3.connect('db.db')
+        self.con = sqlite3.connect('db.db', timeout=1)
 
     def fechaConexao(self):
         self.con.close()
@@ -13,19 +13,53 @@ class Conecta(object):
     def defineCursor(self):
         self.cursor = self.con.cursor()
 
-    def insereDadosUsuarios(self, login, senha):
+    def insereDadosUsuarios(self, nome, login, senha, data_criacao):
         self.defineCursor()
         self.cursor.execute("""
-        INSERT INTO usuario(login, senha)
-        values(?,?)
-        """,(login, senha))
+        INSERT INTO usuario(nome, login, senha, data_criacao)
+        values(?,?,?,?)
+        """,(nome, login, senha, data_criacao))
 
         self.comita()
 
-    def ledados(self, sql):
+    def ledados(self, sql, parms = None):
+        if parms == None:
+            self.defineCursor()
+            self.cursor.execute(sql)
+            return self.cursor.fetchall()
+        else:
+            self.defineCursor()
+            self.cursor.execute(sql, parms)
+            return self.cursor.fetchall()
+
+    def insereDadosVendas(self, cliente, saldo, data_modificacao):
         self.defineCursor()
-        self.cursor.execute(sql)
-        return self.cursor.fetchall()
+        self.cursor.execute("""
+        INSERT INTO cliente_saldo(cliente, saldo, data_modificacao)
+        values(?,?,?)
+        """,(cliente, saldo, data_modificacao))
+
+        self.comita()
+
+    def executaConsulta(self, sql, parms = None):
+        if parms == None:
+            self.defineCursor()
+            self.cursor.execute(sql)
+            return self.cursor.fetchall()
+        else:
+            self.defineCursor()
+            self.cursor.execute(sql, parms)
+            return self.cursor.fetchall()
+
+    def executaUpdate(self, sql, parms = None):
+        if parms == None:
+            self.defineCursor()
+            self.cursor.execute(sql)
+            self.comita()
+        else:
+            self.defineCursor()
+            self.cursor.execute(sql, parms)
+            self.comita()
 
 
     def comita(self):

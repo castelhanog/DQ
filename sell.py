@@ -1,6 +1,7 @@
 from tkinter import *
-import shelve
 from custom import *
+from connection import Conecta
+import time
 
 
 class principal(object):
@@ -8,7 +9,6 @@ class principal(object):
     def __init__(self, a):
         self.a = a
         self.a['bg'] = color
-        self.dbs = shelve.open('selldb')
 
         self.telaprincipal()
 
@@ -51,16 +51,38 @@ class principal(object):
     def venda(self, event):
         c = self.e1.get()
         v = self.e2.get()
+        t = time.strftime("%x, %X")
 
         c = c.upper()
         v = float(v.replace(',','.'))
 
-        if c not in self.dbs:
-            self.dbs[c] = float(v)
-            self.l5['text'] = 'Venda no valor de R$ %.2f registrada para %s' % (v, c)
-        elif c in self.dbs:
-            self.dbs[c] += float(v)
-            self.l5['text'] = 'Venda no valor de R$ %.2f registrada para %s' % (v, c)
+        self.v = Conecta()
+        self.dados = self.v.ledados("SELECT cliente FROM cliente_saldo")
+
+        if self.dados == []:
+            self.v.insereDadosVendas(c, v, t)
+            self.v.fechaConexao()
+        else:
+            for i in self.dados:
+                if c in i:
+                    print("True")
+                    saldo = self.v.ledados("SELECT saldo FROM cliente_saldo WHERE cliente = ?", (c,))
+                    print(saldo[0])
+
+                    for h in saldo:
+                        saldo1 = h[0]
+                    saldo1 = float(saldo1)
+                    print(saldo1)
+                    saldo1 += float(v)
+                    nv = str(saldo1)
+                    print(nv, type(nv))
+                    self.v.executaUpdate("UPDATE cliente_saldo SET saldo = ?", (nv,))
+                    self.v.fechaConexao()
+                    time.sleep(0.3)
+                    self.l5['text'] = 'Venda valor de R$ %.2f registrada para %s' % (v, c)
+                    break
+                elif c not in i:
+                    continue #break para para aqui se o if for verdadeiro, senão vai continuar (é errado)
 
     def abate(self, event):
         c = self.e1.get()
