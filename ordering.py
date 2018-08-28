@@ -98,15 +98,39 @@ class Pedidos(object):
         self.l6 = Label(self.c, text="", bg=color)
         self.l6.grid(row=11, column=1, columnspan=2, padx=4)
 
+        # quarta opção
+        self.con = Conecta()
+        self.produtos = self.con.ledados("SELECT produto_nome FROM produtos")
+
+        lista = []  # lista com os resultados da query para exibição no option
+
+        for i in self.produtos:
+            lista.append(str(i[0]))  # adicionando resultados fora da tupla para a lista
+
+        var = StringVar(self.c)
+        var.set("Escolha um produto")  # valor exibido no botão
+
+        self.option = OptionMenu(self.c, var, *lista)  # colocar '*' antes da variavel lista para
+        self.option.grid(row=12, column=1, columnspan=2, padx=5)  # que sejam exibidas todas as opçães, uma em cada linha
+
+        self.l5 = Label(self.c, text='Quantidade', bg=color, fg="white", font=font3)
+        self.l5.grid(row=11, column=3, columnspan=3, padx=5)
+
+        self.e2 = Entry(self.c)
+        self.e2.grid(row=12, column=3, columnspan=3, padx=5)
+
+        self.l6 = Label(self.c, text="", bg=color)
+        self.l6.grid(row=13, column=1, columnspan=2, padx=4)
+
         self.b1 = Button(self.c, text='Grava')
         self.b1.bind('<Button-1>', self.gravapedido)
         self.b1.bind('<Return>', self.gravapedido)
-        self.b1.grid(row=12, column=1, padx=3)
+        self.b1.grid(row=14, column=1, padx=3)
 
         self.b2 = Button(self.c, text='Gera Pedido')
         self.b2.bind('<Button - 1>', self.gerapedido)
         self.b2.bind('<Return>', self.gerapedido)
-        self.b2.grid(row=12, column=3, padx=3)
+        self.b2.grid(row=14, column=3, padx=3)
 
     def gravapedido(self, event):
         c = self.e1.get()
