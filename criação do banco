@@ -5,3 +5,9 @@ CREATE TABLE cliente_saldo (
     data_modificacao VARCHAR,
     usuario_logado   VARCHAR
 );
+
+CREATE TABLE produtos (
+    id           INTEGER PRIMARY KEY AUTOINCREMENT,
+    produto_nome VARCHAR,
+    preco        VARCHAR
+);

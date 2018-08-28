@@ -127,7 +127,7 @@ class principal(object):
             consumer = i[0]
             value = i[1]
             self.t.insert(INSERT, '%s: R$ %s\n' % (consumer, str(value)))
-            
+
 
 if __name__ == '__main__':
     i = Tk()

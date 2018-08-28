@@ -1,15 +1,12 @@
 from tkinter import *
-import shelve
 from custom import *
+from connection import Conecta
+import time
 
 class Pedidos(object):
     def __init__(self, c):
         self.c = c
         self.c['bg'] = color
-        self.dbo1 = shelve.open('order1')
-        self.dbo2 = shelve.open('order2')
-        self.dbo3 = shelve.open('order3')
-        self.dbo4 = shelve.open('order4')
 
         self.telaprincipal()
 
@@ -20,19 +17,19 @@ class Pedidos(object):
         self.l2 = Label(self.c, text='Escolha o produto, informe o cliente e quantidade', bg = color, fg = 'white', font = font2)
         self.l2.grid(row=2, column=1, columnspan=2, padx=5)
 
-        self.p = IntVar()
+        self.con = Conecta()
+        self.produtos = self.con.ledados("SELECT produto_nome FROM produtos")
 
-        self.rb1 = Radiobutton(self.c, text='Pãozinho doce simples', variable=self.p, value=0, bg=color)
-        self.rb1.grid(row=3, column=1, padx=3)
+        lista = [] #lista com os resultados da query para exibição no option
 
-        self.rb2 = Radiobutton(self.c, text='Pãozinho doce recheado', variable=self.p, value=1, bg=color)
-        self.rb2.grid(row=4, column=1, padx=3)
+        for i in self.produtos:
+            lista.append(str(i[0])) #adicionando resultados fora da tupla para a lista
 
-        self.rb3 = Radiobutton(self.c, text='Pãozinho salgado recheado', variable=self.p, value=2, bg=color)
-        self.rb3.grid(row=3, column=2, padx=3)
+        var = StringVar(self.c)
+        var.set("Escolha um produto")  # valor exibido no botão
 
-        self.rb4 = Radiobutton(self.c, text='Brownie', variable=self.p, value=3, bg=color)
-        self.rb4.grid(row=4, column=2, padx=3)
+        self.option = OptionMenu(self.c, var, *lista) # colocar '*' antes da variavel lista para
+        self.option.grid(row=3, column=1, columnspan=2, padx=5) #que sejam exibidas todas as opçães, uma em cada linha
 
         self.l3 = Label(self.c, text='Cliente', bg=color)
         self.l3.grid(row=5, column=1, columnspan=2, padx=5)
