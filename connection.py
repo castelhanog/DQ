@@ -41,6 +41,15 @@ class Conecta(object):
 
         self.comita()
 
+    def insereDadosPedidos(self, nome_cliente, produto, quantidade, data_modificacao):
+        self.defineCursor()
+        self.cursor.execute("""
+        INSERT INTO pedidos(nome_cliente, produto, quantidade, data_modificacao)
+        values(?,?,?,?)
+        """,(nome_cliente, produto, quantidade, data_modificacao))
+
+        self.comita()
+
     def executaConsulta(self, sql, parms = None):
         if parms == None:
             self.defineCursor()

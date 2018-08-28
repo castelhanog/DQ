@@ -11,3 +11,11 @@ CREATE TABLE produtos (
     produto_nome VARCHAR,
     preco        VARCHAR
 );
+
+CREATE TABLE pedidos (
+    id               INTEGER         PRIMARY KEY AUTOINCREMENT,
+    nome_cliente     VARCHAR (1, 20),
+    produto          VARCHAR (1, 20),
+    quantidade       VARCHAR (1, 5),
+    data_modificacao VARCHAR
+);
