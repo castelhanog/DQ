@@ -35,11 +35,11 @@ class Pedidos(object):
         for i in self.produtos:
             lista.append(str(i[0])) #adicionando resultados fora da tupla para a lista
 
-        var = StringVar(self.c)
-        var.set("Escolha um produto")  # valor exibido no botão
+        self.var = StringVar(self.c) #verificar necessidade na documentação de optionmenu tkinter.
+        self.var.set("Escolha um produto")  # valor exibido no botão
 
-        self.option = OptionMenu(self.c, var, *lista) # colocar '*' antes da variavel lista para
-        self.option.grid(row=6, column=1, columnspan=2, padx=5) #que sejam exibidas todas as opçães, uma em cada linha
+        self.option1 = OptionMenu(self.c, self.var, *lista) # colocar '*' antes da variavel lista para
+        self.option1.grid(row=6, column=1, columnspan=2, padx=5) #que sejam exibidas todas as opçães, uma em cada linha
 
         self.l5 = Label(self.c, text='Quantidade', bg=color, fg = "white", font=font3)
         self.l5.grid(row=5, column=3, columnspan=3, padx=5)
@@ -59,11 +59,11 @@ class Pedidos(object):
         for i in self.produtos:
             lista.append(str(i[0]))  # adicionando resultados fora da tupla para a lista
 
-        var = StringVar(self.c)
-        var.set("Escolha um produto")  # valor exibido no botão
+        self.var2 = StringVar(self.c)
+        self.var2.set("Escolha um produto")  # valor exibido no botão
 
-        self.option = OptionMenu(self.c, var, *lista)  # colocar '*' antes da variavel lista para
-        self.option.grid(row=8, column=1, columnspan=2, padx=5)  # que sejam exibidas todas as opçães, uma em cada linha
+        self.option2 = OptionMenu(self.c, self.var2, *lista)  # colocar '*' antes da variavel lista para
+        self.option2.grid(row=8, column=1, columnspan=2, padx=5)  # que sejam exibidas todas as opçães, uma em cada linha
 
         self.l5 = Label(self.c, text='Quantidade', bg=color, fg="white", font=font3)
         self.l5.grid(row=7, column=3, columnspan=3, padx=5)
@@ -83,11 +83,11 @@ class Pedidos(object):
         for i in self.produtos:
             lista.append(str(i[0]))  # adicionando resultados fora da tupla para a lista
 
-        var = StringVar(self.c)
-        var.set("Escolha um produto")  # valor exibido no botão
+        self.var3 = StringVar(self.c)
+        self.var3.set("Escolha um produto")  # valor exibido no botão
 
-        self.option = OptionMenu(self.c, var, *lista)  # colocar '*' antes da variavel lista para
-        self.option.grid(row=10, column=1, columnspan=2, padx=5)  # que sejam exibidas todas as opçães, uma em cada linha
+        self.option3 = OptionMenu(self.c, self.var3, *lista)  # colocar '*' antes da variavel lista para
+        self.option3.grid(row=10, column=1, columnspan=2, padx=5)  # que sejam exibidas todas as opçães, uma em cada linha
 
         self.l5 = Label(self.c, text='Quantidade', bg=color, fg="white", font=font3)
         self.l5.grid(row=9, column=3, columnspan=3, padx=5)
@@ -107,11 +107,11 @@ class Pedidos(object):
         for i in self.produtos:
             lista.append(str(i[0]))  # adicionando resultados fora da tupla para a lista
 
-        var = StringVar(self.c)
-        var.set("Escolha um produto")  # valor exibido no botão
+        self.var4 = StringVar(self.c)
+        self.var4.set("Escolha um produto")  # valor exibido no botão
 
-        self.option = OptionMenu(self.c, var, *lista)  # colocar '*' antes da variavel lista para
-        self.option.grid(row=12, column=1, columnspan=2, padx=5)  # que sejam exibidas todas as opçães, uma em cada linha
+        self.option4 = OptionMenu(self.c, self.var4, *lista)  # colocar '*' antes da variavel lista para
+        self.option4.grid(row=12, column=1, columnspan=2, padx=5)  # que sejam exibidas todas as opçães, uma em cada linha
 
         self.l5 = Label(self.c, text='Quantidade', bg=color, fg="white", font=font3)
         self.l5.grid(row=11, column=3, columnspan=3, padx=5)
@@ -136,6 +136,9 @@ class Pedidos(object):
         c = self.e1.get()
         q = self.e2.get()
 
+        print(self.var.get())
+
+    '''
         if self.p.get() == 0:
             if c not in self.dbo1:
                 self.dbo1[c] = q
@@ -164,7 +167,7 @@ class Pedidos(object):
             elif c in self.dbo4:
                 self.dbo4[c] = q
                 self.l5['text'] = 'Pedido de Brownie para %s. Quantidade: %s' % (c, q)
-
+    '''
     def gerapedido(self, event):
         arquivo = open('Pedido.txt', 'w')
 
