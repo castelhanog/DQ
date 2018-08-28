@@ -1,4 +1,4 @@
-color = "#729796" # cor principal de fundo
+color = "#605577" # cor principal de fundo
 
 font1 = ('Arial', '16', 'bold') # Títulos
 

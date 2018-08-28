@@ -91,9 +91,11 @@ class Login(object):
                 i = list(i)
                 if c in i:
                     if s == i[3] and (self.r.get() == 0):
+                        self.c.fechaConexao()
                         self.muda()
                         break
                     elif s == i[3] and (self.r.get() == 1):
+                        self.c.fechaConexao()
                         self.muda1()
                         break
                     elif s != i[3]:
@@ -102,7 +104,7 @@ class Login(object):
                 else:
                     self.l5['text'] = 'Usuário não encontrado!'
 
-        
+
 
 
     def destroi(self):

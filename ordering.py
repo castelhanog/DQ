@@ -14,10 +14,10 @@ class Pedidos(object):
         self.telaprincipal()
 
     def telaprincipal(self):
-        self.l1 = Label(self.c, text='Módulo de Pedidos', bg=color)
+        self.l1 = Label(self.c, text='Módulo de Pedidos', bg = color, fg = 'white', font = font1)
         self.l1.grid(row=1, column=1, columnspan=2, padx=5)
 
-        self.l2 = Label(self.c, text='Escolha o produto, informe o cliente e quantidade', bg=color)
+        self.l2 = Label(self.c, text='Escolha o produto, informe o cliente e quantidade', bg = color, fg = 'white', font = font2)
         self.l2.grid(row=2, column=1, columnspan=2, padx=5)
 
         self.p = IntVar()

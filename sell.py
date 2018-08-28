@@ -66,15 +66,12 @@ class principal(object):
             for i in self.dados:
                 if c in i:
                     saldo = self.v.ledados("SELECT saldo FROM cliente_saldo WHERE cliente = ?", (c,))
-                    print(saldo[0])
 
                     for h in saldo:
-                        saldo1 = h[0]
+                        saldo1 = h[0] #precisa fazer esse for pra tirar o resultado da tupla (verificar melhora no código)
                     saldo1 = float(saldo1)
-                    print(saldo1)
                     saldo1 += float(v)
                     nv = str(saldo1)
-                    print(nv, type(nv))
                     self.v.executaUpdate("UPDATE cliente_saldo SET saldo = ? WHERE cliente = ?", (nv, c,))
                     self.v.fechaConexao()
                     time.sleep(0.3)
@@ -86,18 +83,35 @@ class principal(object):
     def abate(self, event):
         c = self.e1.get()
         v = self.e2.get()
+        t = time.strftime("%x, %X")
 
         c = c.upper()
         v = float(v.replace(',', '.'))
 
-        if c not in self.dbs:
-            self.l5['text'] = 'Usuário não encontrado'
-        elif c in self.dbs:
-            self.dbs[c] -= float(v)
-            if self.dbs[c] > 0:
-                self.l5['text'] = 'Valor de RS %.2f abatido do cliente %s' % (v,c)
-            elif self.dbs[c] < 0:
-                self.l5['text'] = 'Valor de RS %.2f abatido do cliente %s' % (v,c) +'\n ATENÇÂO! Saldo ficará negativo'
+        self.v = Conecta()
+        self.dados = self.v.ledados("SELECT cliente FROM cliente_saldo")
+
+        if self.dados == []:
+            self.v.insereDadosVendas(c, v, t)
+            self.v.fechaConexao()
+        else:
+            for i in self.dados:
+                if c in i:
+                    saldo = self.v.ledados("SELECT saldo FROM cliente_saldo WHERE cliente = ?", (c,))
+
+                    for h in saldo:
+                        saldo1 = h[0]  # precisa fazer esse for pra tirar o resultado da tupla (verificar melhora no código)
+                    saldo1 = float(saldo1)
+                    saldo1 -= float(v)
+                    nv = str(saldo1)
+                    self.v.executaUpdate("UPDATE cliente_saldo SET saldo = ? WHERE cliente = ?", (nv, c,))
+                    self.v.fechaConexao()
+                    time.sleep(0.3)
+                    self.l5['text'] = 'Subtraído o valor de R$ %.2f para cliente: %s' % (v, c)
+                    break
+                elif c not in i:
+                    continue  # break para para aqui se o if for verdadeiro, senão vai continuar (é errado)
+
 
     def saldo(self, event):
         self.saldo = Tk()
@@ -106,8 +120,15 @@ class principal(object):
         self.t = Text(self.saldo)
         self.t.pack()
 
-        for i in self.dbs:
-            self.t.insert(INSERT, '%s: R$ %s\n' % (i, str(self.dbs[i])))
+        self.s = Conecta()
+        self.pesquisa_valores = self.s.ledados("SELECT cliente,saldo FROM cliente_saldo")
+
+        for i in self.pesquisa_valores:
+            consumer = i[0]
+            value = i[1]
+            self.t.insert(INSERT, '%s: R$ %s\n' % (consumer, str(value)))
+            
+
 
 if __name__ == '__main__':
     i = Tk()

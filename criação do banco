@@ -1,0 +1,7 @@
+CREATE TABLE cliente_saldo (
+    id               INTEGER         PRIMARY KEY AUTOINCREMENT,
+    cliente          VARCHAR (1, 20),
+    saldo            VARCHAR,
+    data_modificacao VARCHAR,
+    usuario_logado   VARCHAR
+);
