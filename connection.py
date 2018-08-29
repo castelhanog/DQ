@@ -73,7 +73,7 @@ class Conecta(object):
 
     def comita(self):
         self.con.commit()
-        self.fechaConexao()
+
 
 
 if __name__ == '__main__':

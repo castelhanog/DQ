@@ -68,8 +68,8 @@ class Pedidos(object):
         self.l5 = Label(self.c, text='Quantidade', bg=color, fg="white", font=font3)
         self.l5.grid(row=7, column=3, columnspan=3, padx=5)
 
-        self.e2 = Entry(self.c)
-        self.e2.grid(row=8, column=3, columnspan=3, padx=5)
+        self.e3 = Entry(self.c)
+        self.e3.grid(row=8, column=3, columnspan=3, padx=5)
 
         self.l6 = Label(self.c, text="", bg=color)
         self.l6.grid(row=9, column=1, columnspan=2, padx=4)
@@ -92,8 +92,8 @@ class Pedidos(object):
         self.l5 = Label(self.c, text='Quantidade', bg=color, fg="white", font=font3)
         self.l5.grid(row=9, column=3, columnspan=3, padx=5)
 
-        self.e2 = Entry(self.c)
-        self.e2.grid(row=10, column=3, columnspan=3, padx=5)
+        self.e4 = Entry(self.c)
+        self.e4.grid(row=10, column=3, columnspan=3, padx=5)
 
         self.l6 = Label(self.c, text="", bg=color)
         self.l6.grid(row=11, column=1, columnspan=2, padx=4)
@@ -116,8 +116,8 @@ class Pedidos(object):
         self.l5 = Label(self.c, text='Quantidade', bg=color, fg="white", font=font3)
         self.l5.grid(row=11, column=3, columnspan=3, padx=5)
 
-        self.e2 = Entry(self.c)
-        self.e2.grid(row=12, column=3, columnspan=3, padx=5)
+        self.e5 = Entry(self.c)
+        self.e5.grid(row=12, column=3, columnspan=3, padx=5)
 
         self.l6 = Label(self.c, text="", bg=color)
         self.l6.grid(row=13, column=1, columnspan=2, padx=4)
@@ -133,10 +133,30 @@ class Pedidos(object):
         self.b2.grid(row=14, column=3, padx=3)
 
     def gravapedido(self, event):
+        c = self.e1.get()
         t = time.strftime("%x, %X")
 
-        #parei aqui 28-08
-        #começar procedimento de gravação
+        c = c.upper()
+
+        print(self.var.get(), self.var2.get(), self.var3.get(), self.var4.get())
+
+        self.p = Conecta()
+        # lembrar de colocar o comando sql ao chamar o método abaixo
+        self.cliente = self.p.ledados('SELECT * FROM usuario')
+        for i in self.cliente:
+            # Transformar resultado em lista para facilitar o acesso aos indíces de i
+            i = list(i)
+            if c not in i:
+                if self.var.get() != "Escolha um produto":
+                    self.p.insereDadosPedidos(c, self.var.get(),self.e2.get(), t)
+                if self.var2.get() != "Escolha um produto":
+                    self.p.insereDadosPedidos(c, self.var2.get(),self.e3.get(), t)
+                if self.var3.get() != "Escolha um produto":
+                    self.p.insereDadosPedidos(c, self.var3.get(),self.e4.get(), t)
+                if self.var4.get() != "Escolha um produto":
+                    self.p.insereDadosPedidos(c, self.var4.get(),self.e5.get(), t)
+                self.p.fechaConexao()
+
 
 
     def gerapedido(self, event):
