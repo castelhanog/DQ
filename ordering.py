@@ -142,21 +142,49 @@ class Pedidos(object):
 
         self.p = Conecta()
         # lembrar de colocar o comando sql ao chamar o método abaixo
-        self.cliente = self.p.ledados('SELECT * FROM usuario')
+        self.cliente = self.p.ledados('SELECT * FROM pedidos')
         for i in self.cliente:
             # Transformar resultado em lista para facilitar o acesso aos indíces de i
             i = list(i)
-            if c not in i:
+
+            if c not in i[1]:
                 if self.var.get() != "Escolha um produto":
                     self.p.insereDadosPedidos(c, self.var.get(),self.e2.get(), t)
+                else:
+                    pass
                 if self.var2.get() != "Escolha um produto":
                     self.p.insereDadosPedidos(c, self.var2.get(),self.e3.get(), t)
+                else:
+                    pass
                 if self.var3.get() != "Escolha um produto":
                     self.p.insereDadosPedidos(c, self.var3.get(),self.e4.get(), t)
+                else:
+                    pass
                 if self.var4.get() != "Escolha um produto":
                     self.p.insereDadosPedidos(c, self.var4.get(),self.e5.get(), t)
+                else:
+                    pass
+            else:
+                if self.var.get() != "Escolha um produto":
+                    self.p.executaUpdatePedidos(c, self.var.get(),self.e2.get(), t)
+                else:
+                    pass
+                if self.var2.get() != "Escolha um produto":
+                    self.p.executaUpdatePedidos(c, self.var2.get(),self.e3.get(), t)
+                else:
+                    pass
+                if self.var3.get() != "Escolha um produto":
+                    self.p.executaUpdatePedidos(c, self.var3.get(),self.e4.get(), t)
+                else:
+                    pass
+                if self.var4.get() != "Escolha um produto":
+                    self.p.executaUpdatePedidos(c, self.var4.get(),self.e5.get(), t)
+                else:
+                    pass
                 self.p.fechaConexao()
 
+            ###parei aqui dia 03/10/2018 arrumando update na tabela de pedidos - update para somar com quantidade já existente.
+            #atualmente no update ele está trocando o valor novo com o valor da tabela
 
 
     def gerapedido(self, event):
