@@ -50,6 +50,16 @@ class Conecta(object):
 
         self.comita()
 
+    def executaUpdatePedidos(self, nome_cliente, produto, quantidade, data_modificacao):
+        self.defineCursor()
+        self.cursor.execute("""
+        UPDATE pedidos
+        SET quantidade=?, 
+        data_modificacao=?
+        WHERE nome_cliente=? AND produto=?
+        """,(quantidade, data_modificacao, nome_cliente, produto))
+        self.comita()
+
     def executaConsulta(self, sql, parms = None):
         if parms == None:
             self.defineCursor()
