@@ -80,6 +80,12 @@ class Conecta(object):
             self.cursor.execute(sql, parms)
             self.comita()
 
+    def transformaResultados(self, value):
+        self.trata = value
+        for i in self.trata:
+            for b in i:
+                return b
+
 
     def comita(self):
         self.con.commit()

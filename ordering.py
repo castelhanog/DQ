@@ -138,8 +138,6 @@ class Pedidos(object):
 
         c = c.upper()
 
-        print(self.var.get(), self.var2.get(), self.var3.get(), self.var4.get())
-
         self.p = Conecta()
         # lembrar de colocar o comando sql ao chamar o método abaixo
         self.cliente = self.p.ledados('SELECT * FROM pedidos')
@@ -164,27 +162,48 @@ class Pedidos(object):
                     self.p.insereDadosPedidos(c, self.var4.get(),self.e5.get(), t)
                 else:
                     pass
+                self.p.fechaConexao()
             else:
                 if self.var.get() != "Escolha um produto":
-                    self.p.executaUpdatePedidos(c, self.var.get(),self.e2.get(), t)
+                    self.q1 = int(self.p.transformaResultados(self.p.ledados('''
+                    SELECT quantidade 
+                    FROM pedidos 
+                    WHERE nome_cliente = ? AND produto = ?
+                    ''',(c, self.var.get()))))
+                    self.p.executaUpdatePedidos(c, self.var.get(),(self.q1 + int(self.e2.get())), t)
                 else:
                     pass
                 if self.var2.get() != "Escolha um produto":
-                    self.p.executaUpdatePedidos(c, self.var2.get(),self.e3.get(), t)
+                    self.q2 = int(self.p.transformaResultados(self.p.ledados('''
+                    SELECT quantidade 
+                    FROM pedidos 
+                    WHERE nome_cliente = ? AND produto = ?
+                    ''', (c, self.var2.get()))))
+                    self.p.executaUpdatePedidos(c, self.var2.get(), (self.q2 + int(self.e3.get())), t)
                 else:
                     pass
                 if self.var3.get() != "Escolha um produto":
-                    self.p.executaUpdatePedidos(c, self.var3.get(),self.e4.get(), t)
+                    self.q3 = int(self.p.transformaResultados(self.p.ledados('''
+                    SELECT quantidade 
+                    FROM pedidos 
+                    WHERE nome_cliente = ? AND produto = ?
+                    ''', (c, self.var3.get()))))
+                    self.p.executaUpdatePedidos(c, self.var3.get(), (self.q3 + int(self.e4.get())), t)
                 else:
                     pass
                 if self.var4.get() != "Escolha um produto":
-                    self.p.executaUpdatePedidos(c, self.var4.get(),self.e5.get(), t)
+                    self.q4 = int(self.p.transformaResultados(self.p.ledados('''
+                    SELECT quantidade 
+                    FROM pedidos 
+                    WHERE nome_cliente = ? AND produto = ?
+                    ''', (c, self.var4.get()))))
+                    self.p.executaUpdatePedidos(c, self.var4.get(), (self.q4 + int(self.e5.get())), t)
                 else:
                     pass
                 self.p.fechaConexao()
 
-            ###parei aqui dia 03/10/2018 arrumando update na tabela de pedidos - update para somar com quantidade já existente.
-            #atualmente no update ele está trocando o valor novo com o valor da tabela
+            ###parei aqui dia 04/10/2018 arrumando update na tabela de pedidos - update para somar com quantidade já existente.
+            #update feito, porém, precisa acertar agora para gravar de usuário já existente o produto que não foi pedido antes
 
 
     def gerapedido(self, event):
