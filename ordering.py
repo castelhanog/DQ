@@ -140,37 +140,39 @@ class Pedidos(object):
 
         self.p = Conecta()
         # lembrar de colocar o comando sql ao chamar o método abaixo
-        self.cliente = self.p.ledados('SELECT * FROM pedidos')
-        for i in self.cliente:
-            # Transformar resultado em lista para facilitar o acesso aos indíces de i
-            i = list(i)
+        self.cliente = self.p.ledados('SELECT * FROM pedidos WHERE nome_cliente=?',(c,))
 
-            if c not in i[1]:
-                if self.var.get() != "Escolha um produto":
-                    self.p.insereDadosPedidos(c, self.var.get(),self.e2.get(), t)
-                else:
-                    pass
-                if self.var2.get() != "Escolha um produto":
-                    self.p.insereDadosPedidos(c, self.var2.get(),self.e3.get(), t)
-                else:
-                    pass
-                if self.var3.get() != "Escolha um produto":
-                    self.p.insereDadosPedidos(c, self.var3.get(),self.e4.get(), t)
-                else:
-                    pass
-                if self.var4.get() != "Escolha um produto":
-                    self.p.insereDadosPedidos(c, self.var4.get(),self.e5.get(), t)
-                else:
-                    pass
-                self.p.fechaConexao()
+        if self.cliente == []:
+            if self.var.get() != "Escolha um produto":
+                self.p.insereDadosPedidos(c, self.var.get(),self.e2.get(), t)
             else:
-                if self.var.get() != "Escolha um produto":
+                pass
+            if self.var2.get() != "Escolha um produto":
+                self.p.insereDadosPedidos(c, self.var2.get(),self.e3.get(), t)
+            else:
+                pass
+            if self.var3.get() != "Escolha um produto":
+                self.p.insereDadosPedidos(c, self.var3.get(),self.e4.get(), t)
+            else:
+                pass
+            if self.var4.get() != "Escolha um produto":
+                self.p.insereDadosPedidos(c, self.var4.get(),self.e5.get(), t)
+            else:
+                pass
+
+        else:
+            for i in self.cliente:
+                print(i)
+
+                if self.var.get() != "Escolha um produto" and self.var.get() not in i[2]:
+                    self.p.insereDadosPedidos(c, self.var.get(), self.e2.get(), t)
+                elif self.var.get() != "Escolha um produto" and self.var.get() in i[2]:
                     self.q1 = int(self.p.transformaResultados(self.p.ledados('''
                     SELECT quantidade 
                     FROM pedidos 
                     WHERE nome_cliente = ? AND produto = ?
-                    ''',(c, self.var.get()))))
-                    self.p.executaUpdatePedidos(c, self.var.get(),(self.q1 + int(self.e2.get())), t)
+                    ''', (c, self.var.get()))))
+                    self.p.executaUpdatePedidos(c, self.var.get(), (self.q1 + int(self.e2.get())), t)
                 else:
                     pass
                 if self.var2.get() != "Escolha um produto":
@@ -199,11 +201,12 @@ class Pedidos(object):
                     ''', (c, self.var4.get()))))
                     self.p.executaUpdatePedidos(c, self.var4.get(), (self.q4 + int(self.e5.get())), t)
                 else:
-                    pass
-                self.p.fechaConexao()
+                    continue
 
-            ###parei aqui dia 04/10/2018 arrumando update na tabela de pedidos - update para somar com quantidade já existente.
-            #update feito, porém, precisa acertar agora para gravar de usuário já existente o produto que não foi pedido antes
+
+            ###parei aqui dia 06/10/2018 arrumando update na tabela de pedidos - update para somar com quantidade já existente.
+            #update feito. Arrumar: Gravando o update e uma nova linha repitida. Quanto tem mais de um resultado (produto x cliente)
+            #agrupar os os resultados em lista para que ele não faça isso.
 
 
     def gerapedido(self, event):
