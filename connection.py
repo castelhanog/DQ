@@ -70,6 +70,16 @@ class Conecta(object):
             self.cursor.execute(sql, parms)
             return self.cursor.fetchall()
 
+    def executaConsulta(self, ):
+        if parms == None:
+            self.defineCursor()
+            self.cursor.execute(sql)
+            return self.cursor.fetchall()
+        else:
+            self.defineCursor()
+            self.cursor.execute(sql, parms)
+            return self.cursor.fetchall()
+
     def executaUpdate(self, sql, parms = None):
         if parms == None:
             self.defineCursor()

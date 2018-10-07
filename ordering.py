@@ -26,7 +26,13 @@ class Pedidos(object):
         self.l4 = Label(self.c, text="", bg=color)
         self.l4.grid(row=9, column=1, columnspan=2, padx=4)
 
-        #primeira opção
+        self.l5 = Label(self.c, text="", bg=color, fg='white', font=font2)
+        self.l5.grid(row=11, column=1, columnspan=2)
+
+        self.l6 = Label(self.c, text="", bg=color, fg='white', font=font2)
+        self.l6.grid(row=11, column=1, columnspan=2)
+
+         #primeira opção
         self.con = Conecta()
         self.produtos = self.con.ledados("SELECT produto_nome FROM produtos")
 
@@ -132,6 +138,7 @@ class Pedidos(object):
         self.b2.bind('<Return>', self.gerapedido)
         self.b2.grid(row=14, column=3, padx=3)
 
+
     def gravapedido(self, event):
         c = self.e1.get()
         t = time.strftime("%x, %X")
@@ -142,66 +149,89 @@ class Pedidos(object):
         # lembrar de colocar o comando sql ao chamar o método abaixo
         self.cliente = self.p.ledados('SELECT * FROM pedidos WHERE nome_cliente=?',(c,))
 
-        if self.cliente == []:
+        if self.cliente != []:
+
             if self.var.get() != "Escolha um produto":
-                self.p.insereDadosPedidos(c, self.var.get(),self.e2.get(), t)
-            else:
-                pass
-            if self.var2.get() != "Escolha um produto":
-                self.p.insereDadosPedidos(c, self.var2.get(),self.e3.get(), t)
-            else:
-                pass
-            if self.var3.get() != "Escolha um produto":
-                self.p.insereDadosPedidos(c, self.var3.get(),self.e4.get(), t)
-            else:
-                pass
-            if self.var4.get() != "Escolha um produto":
-                self.p.insereDadosPedidos(c, self.var4.get(),self.e5.get(), t)
-            else:
-                pass
-
-        else:
-            for i in self.cliente:
-                print(i)
-
-                if self.var.get() != "Escolha um produto" and self.var.get() not in i[2]:
-                    self.p.insereDadosPedidos(c, self.var.get(), self.e2.get(), t)
-                elif self.var.get() != "Escolha um produto" and self.var.get() in i[2]:
+                self.verifica1 = self.p.ledados('SELECT * FROM pedidos WHERE nome_cliente=? AND produto=?',(c, self.var.get(), ))
+                print(self.verifica1)
+                if self.verifica1 != []:
                     self.q1 = int(self.p.transformaResultados(self.p.ledados('''
                     SELECT quantidade 
                     FROM pedidos 
                     WHERE nome_cliente = ? AND produto = ?
                     ''', (c, self.var.get()))))
                     self.p.executaUpdatePedidos(c, self.var.get(), (self.q1 + int(self.e2.get())), t)
+
                 else:
-                    pass
-                if self.var2.get() != "Escolha um produto":
+                    self.p.insereDadosPedidos(c, self.var.get(), self.e2.get(), t)
+
+            if self.var2.get() != "Escolha um produto":
+                self.verifica2 = self.p.ledados('SELECT * FROM pedidos WHERE nome_cliente=? AND produto=?',(c, self.var2.get(), ))
+                print(self.verifica1)
+                if self.verifica2 != []:
                     self.q2 = int(self.p.transformaResultados(self.p.ledados('''
                     SELECT quantidade 
                     FROM pedidos 
                     WHERE nome_cliente = ? AND produto = ?
                     ''', (c, self.var2.get()))))
                     self.p.executaUpdatePedidos(c, self.var2.get(), (self.q2 + int(self.e3.get())), t)
+
                 else:
-                    pass
-                if self.var3.get() != "Escolha um produto":
+                    self.p.insereDadosPedidos(c, self.var2.get(), self.e3.get(), t)
+
+            if self.var3.get() != "Escolha um produto":
+                self.verifica3 = self.p.ledados('SELECT * FROM pedidos WHERE nome_cliente=? AND produto=?',(c, self.var3.get(), ))
+                print(self.verifica1)
+                if self.verifica3 != []:
                     self.q3 = int(self.p.transformaResultados(self.p.ledados('''
                     SELECT quantidade 
                     FROM pedidos 
                     WHERE nome_cliente = ? AND produto = ?
                     ''', (c, self.var3.get()))))
                     self.p.executaUpdatePedidos(c, self.var3.get(), (self.q3 + int(self.e4.get())), t)
+
                 else:
-                    pass
-                if self.var4.get() != "Escolha um produto":
+                    self.p.insereDadosPedidos(c, self.var3.get(), self.e4.get(), t)
+
+            if self.var4.get() != "Escolha um produto":
+                self.verifica4 = self.p.ledados('SELECT * FROM pedidos WHERE nome_cliente=? AND produto=?',(c, self.var4.get(), ))
+                print(self.verifica4)
+                if self.verifica4 != []:
                     self.q4 = int(self.p.transformaResultados(self.p.ledados('''
                     SELECT quantidade 
                     FROM pedidos 
                     WHERE nome_cliente = ? AND produto = ?
                     ''', (c, self.var4.get()))))
                     self.p.executaUpdatePedidos(c, self.var4.get(), (self.q4 + int(self.e5.get())), t)
+
                 else:
-                    continue
+                    self.p.insereDadosPedidos(c, self.var4.get(), self.e5.get(), t)
+
+        else:
+            if self.var.get() != "Escolha um produto":
+                self.p.insereDadosPedidos(c, self.var.get(), self.e2.get(), t)
+            else:
+                pass
+            if self.var2.get() != "Escolha um produto":
+                self.p.insereDadosPedidos(c, self.var2.get(), self.e3.get(), t)
+            else:
+                pass
+            if self.var3.get() != "Escolha um produto":
+                self.p.insereDadosPedidos(c, self.var3.get(), self.e4.get(), t)
+            else:
+                pass
+            if self.var4.get() != "Escolha um produto":
+                self.p.insereDadosPedidos(c, self.var4.get(), self.e5.get(), t)
+            else:
+                pass
+            self.gerado()
+
+    def gerado(self):
+        self.gerado = Tk()
+        self.gerado.title('Clientes e Saldos')
+
+        self.t = Text(self.gerado)
+        self.t.pack()
 
 
             ###parei aqui dia 06/10/2018 arrumando update na tabela de pedidos - update para somar com quantidade já existente.
