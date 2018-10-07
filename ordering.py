@@ -238,6 +238,8 @@ class Pedidos(object):
                 pass
             self.gerado()
 
+        self.con.fechaConexao()
+
     def gerado(self):
         self.gerado = Tk()
         self.gerado.title('Clientes e Saldos')
@@ -246,9 +248,7 @@ class Pedidos(object):
         self.t.pack()
 
 
-            ###parei aqui dia 06/10/2018 arrumando update na tabela de pedidos - update para somar com quantidade já existente.
-            #update feito. Arrumar: Gravando o update e uma nova linha repitida. Quanto tem mais de um resultado (produto x cliente)
-            #agrupar os os resultados em lista para que ele não faça isso.
+            # atualizado 06/10/2018 . update e gravar pedido, terminados.
 
 
     def gerapedido(self, event):
