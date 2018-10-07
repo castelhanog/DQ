@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4ac3e9b0-67f3-4b2c-9bcf-cd84d055dd84" name="Default" comment="+ ordering">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ordering.py" beforeDir="false" afterPath="$PROJECT_DIR$/ordering.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -64,13 +65,13 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="3160" />
+          <entry key="py" value="4242" />
           <entry key="txt" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="3160" />
+          <entry key="Python" value="4242" />
           <entry key="Scratch" value="5" />
         </counts>
       </usages-collector>
@@ -103,11 +104,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ordering.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="240" column="8" selection-start-line="240" selection-start-column="8" selection-end-line="240" selection-end-column="8" />
+            <state relative-caret-position="524">
+              <caret line="161" column="93" selection-start-line="161" selection-start-column="93" selection-end-line="161" selection-end-column="93" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
-                <marker date="1538878824126" expanded="true" signature="10302:10311" ph="..." />
+                <marker date="1538879254337" expanded="true" signature="11330:11339" ph="..." />
               </folding>
             </state>
           </provider>
@@ -570,7 +571,14 @@
       <option name="project" value="LOCAL" />
       <updated>1538878594342</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="+ ordering">
+      <created>1538878874106</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1538878874106</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TodoView">
@@ -690,11 +698,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ordering.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="240" column="8" selection-start-line="240" selection-start-column="8" selection-end-line="240" selection-end-column="8" />
+        <state relative-caret-position="524">
+          <caret line="161" column="93" selection-start-line="161" selection-start-column="93" selection-end-line="161" selection-end-column="93" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
-            <marker date="1538878824126" expanded="true" signature="10302:10311" ph="..." />
+            <marker date="1538879254337" expanded="true" signature="11330:11339" ph="..." />
           </folding>
         </state>
       </provider>

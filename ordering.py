@@ -151,6 +151,16 @@ class Pedidos(object):
 
         if self.cliente != []:
 
+            '''
+            IMPORTANTE!!!! Depois de horas tentando realizar o update quando já tivesse cliente e produtos, e gravar um produto novo,
+            quando já tivesse o cliente, depois de muita batalha (estava indo pro banco novamente mesmo já existente), isto por conta
+            do for loop, em um loop ele achava, fazia o upload e continuava, no outro, como estaria diferente ele gravava outro registro duplicadp
+            no banco. A solução, embora penosa, é simples. ao invés de tentar fazer tudo com o retorno de uma query (usando o self.cliente acima)
+            eu executo uma para cada option. Assim, ele não vai percorrer todos os resuldados. Portanto faz o update se achar cliente e produto juntos
+            ou grava um registro novo se achar cliente e não achar produto. 
+            Depois de muito tempo perdido, fica a lição de que nem sempre tentar simplificar o máximo deu certo.
+            O ponto chave não está no self.cliente e sim no self.verifica1 dentro dos options
+            '''
             if self.var.get() != "Escolha um produto":
                 self.verifica1 = self.p.ledados('SELECT * FROM pedidos WHERE nome_cliente=? AND produto=?',(c, self.var.get(), ))
                 if self.verifica1 != []:
