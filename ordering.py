@@ -153,7 +153,6 @@ class Pedidos(object):
 
             if self.var.get() != "Escolha um produto":
                 self.verifica1 = self.p.ledados('SELECT * FROM pedidos WHERE nome_cliente=? AND produto=?',(c, self.var.get(), ))
-                print(self.verifica1)
                 if self.verifica1 != []:
                     self.q1 = int(self.p.transformaResultados(self.p.ledados('''
                     SELECT quantidade 
@@ -163,11 +162,14 @@ class Pedidos(object):
                     self.p.executaUpdatePedidos(c, self.var.get(), (self.q1 + int(self.e2.get())), t)
 
                 else:
-                    self.p.insereDadosPedidos(c, self.var.get(), self.e2.get(), t)
+                    self.valida = int(self.e2.get())
+                    if self.valida > 0:
+                        self.p.insereDadosPedidos(c, self.var.get(), self.e2.get(), t)
+                    else:
+                        pass
 
             if self.var2.get() != "Escolha um produto":
                 self.verifica2 = self.p.ledados('SELECT * FROM pedidos WHERE nome_cliente=? AND produto=?',(c, self.var2.get(), ))
-                print(self.verifica1)
                 if self.verifica2 != []:
                     self.q2 = int(self.p.transformaResultados(self.p.ledados('''
                     SELECT quantidade 
@@ -177,11 +179,14 @@ class Pedidos(object):
                     self.p.executaUpdatePedidos(c, self.var2.get(), (self.q2 + int(self.e3.get())), t)
 
                 else:
-                    self.p.insereDadosPedidos(c, self.var2.get(), self.e3.get(), t)
+                    self.valida2 = int(self.e3.get())
+                    if self.valida2 > 0:
+                        self.p.insereDadosPedidos(c, self.var2.get(), self.e3.get(), t)
+                    else:
+                        pass
 
             if self.var3.get() != "Escolha um produto":
                 self.verifica3 = self.p.ledados('SELECT * FROM pedidos WHERE nome_cliente=? AND produto=?',(c, self.var3.get(), ))
-                print(self.verifica1)
                 if self.verifica3 != []:
                     self.q3 = int(self.p.transformaResultados(self.p.ledados('''
                     SELECT quantidade 
@@ -191,11 +196,14 @@ class Pedidos(object):
                     self.p.executaUpdatePedidos(c, self.var3.get(), (self.q3 + int(self.e4.get())), t)
 
                 else:
-                    self.p.insereDadosPedidos(c, self.var3.get(), self.e4.get(), t)
+                    self.valida3 = int(self.e4.get())
+                    if self.valida3 > 0:
+                        self.p.insereDadosPedidos(c, self.var3.get(), self.e4.get(), t)
+                    else:
+                        pass
 
             if self.var4.get() != "Escolha um produto":
                 self.verifica4 = self.p.ledados('SELECT * FROM pedidos WHERE nome_cliente=? AND produto=?',(c, self.var4.get(), ))
-                print(self.verifica4)
                 if self.verifica4 != []:
                     self.q4 = int(self.p.transformaResultados(self.p.ledados('''
                     SELECT quantidade 
@@ -205,7 +213,11 @@ class Pedidos(object):
                     self.p.executaUpdatePedidos(c, self.var4.get(), (self.q4 + int(self.e5.get())), t)
 
                 else:
-                    self.p.insereDadosPedidos(c, self.var4.get(), self.e5.get(), t)
+                    self.valida4 = int(self.e5.get())
+                    if self.valida4 > 0:
+                        self.p.insereDadosPedidos(c, self.var4.get(), self.e5.get(), t)
+                    else:
+                        pass
 
         else:
             if self.var.get() != "Escolha um produto":
