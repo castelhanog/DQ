@@ -264,32 +264,20 @@ class Pedidos(object):
     def gerapedido(self, event):
         arquivo = open('Pedido.txt', 'w')
 
-        if len(self.dbo1) > 0:
-            arquivo.write('Pãozinho simples\n\n')
-            for i in self.dbo1:
-                arquivo.write('%s: %s\n' % (i, str(self.dbo1[i])))
+        self.g = Conecta()
 
-        if len(self.dbo2) > 0:
-            arquivo.write('\nPãozinho doce recheado\n\n')
-            for i in self.dbo2:
-                arquivo.write('%s: %s\n' % (i, str(self.dbo2[i])))
+        self.consultapedido = self.g.ledados('SELECT * FROM pedidos')
 
-        if len(self.dbo3) > 0:
-            arquivo.write('\nPãozinho salgado recheado\n\n')
-            for i in self.dbo3:
-                arquivo.write('%s: %s\n' % (i, str(self.dbo3[i])))
+        if self.consultapedido != []:
 
-        if len(self.dbo4) > 0:
-            arquivo.write('\nBrownie\n\n')
-            for i in self.dbo4:
-                arquivo.write('%s: %s\n' % (i, str(self.dbo4[i])))
+            for i in self.consultapedido:
+
+                arquivo.write('Cliente: %s Produto: %s Quantidade: %s\n' % (i[1], i[2], str(i[3])))
+        
         self.l5['text'] = 'Pedido gerado com sucesso!'
         self.l5['font'] = font2
         arquivo.close()
-        self.dbo1.clear()
-        self.dbo2.clear()
-        self.dbo3.clear()
-        self.dbo4.clear()
+
 
 if __name__ == '__main__':
     z = Tk()

@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4ac3e9b0-67f3-4b2c-9bcf-cd84d055dd84" name="Default" comment="+ ordering">
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/guilherme.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.db" beforeDir="false" afterPath="$PROJECT_DIR$/db.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sell.py" beforeDir="false" afterPath="$PROJECT_DIR$/sell.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ordering.py" beforeDir="false" afterPath="$PROJECT_DIR$/ordering.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -67,13 +67,13 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="4380" />
+          <entry key="py" value="4538" />
           <entry key="txt" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="4380" />
+          <entry key="Python" value="4538" />
           <entry key="Scratch" value="5" />
         </counts>
       </usages-collector>
@@ -103,23 +103,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ordering.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="468">
-              <caret line="35" column="27" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="28" />
+            <state relative-caret-position="311">
+              <caret line="270" column="30" selection-start-line="270" selection-start-column="30" selection-end-line="270" selection-end-column="30" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
-                <marker date="1538879254337" expanded="true" signature="11330:11339" ph="..." />
+                <marker date="1539056878527" expanded="true" signature="11330:11339" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sell.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
+            <state relative-caret-position="-666">
               <caret line="11" column="30" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
@@ -191,8 +191,8 @@
         <option value="$PROJECT_DIR$/criação do banco" />
         <option value="$PROJECT_DIR$/connection.py" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch.txt" />
-        <option value="$PROJECT_DIR$/ordering.py" />
         <option value="$PROJECT_DIR$/sell.py" />
+        <option value="$PROJECT_DIR$/ordering.py" />
       </list>
     </option>
   </component>
@@ -252,7 +252,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.open">
+  <component name="RunManager" selected="Python.ordering">
     <configuration name="open" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="DQ" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -345,8 +345,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.open" />
         <item itemvalue="Python.ordering" />
+        <item itemvalue="Python.open" />
         <item itemvalue="Python.sell" />
         <item itemvalue="Python.order" />
       </list>
@@ -615,7 +615,14 @@
       <option name="project" value="LOCAL" />
       <updated>1538879263458</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="+ ordering">
+      <created>1539056165840</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1539056165840</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TodoView">
@@ -728,23 +735,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ordering.py">
+    <entry file="file://$PROJECT_DIR$/sell.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="35" column="27" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="28" />
+        <state relative-caret-position="-666">
+          <caret line="11" column="30" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
-            <marker date="1538879254337" expanded="true" signature="11330:11339" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sell.py">
+    <entry file="file://$PROJECT_DIR$/ordering.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="11" column="30" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
+        <state relative-caret-position="311">
+          <caret line="270" column="30" selection-start-line="270" selection-start-column="30" selection-end-line="270" selection-end-column="30" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
+            <marker date="1539056878527" expanded="true" signature="11330:11339" ph="..." />
           </folding>
         </state>
       </provider>
