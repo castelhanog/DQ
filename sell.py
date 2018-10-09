@@ -9,6 +9,7 @@ class principal(object):
     def __init__(self, a):
         self.a = a
         self.a['bg'] = color
+        self.con = Conecta() #conectar já no __init__ para que após o login já esteja com conexão no banco.
 
         self.telaprincipal()
 
@@ -131,11 +132,7 @@ class principal(object):
 
 if __name__ == '__main__':
     i = Tk()
-
     i.title('V 0.2')
-
     i.resizable(False, False)
-
     principal(i)
-
     i.mainloop()
