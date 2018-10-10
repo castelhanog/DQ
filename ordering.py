@@ -1,6 +1,7 @@
 from tkinter import *
 from custom import *
 from connection import Conecta
+from confirma_acao import Confirma
 import time
 
 class Pedidos(object):
@@ -251,11 +252,8 @@ class Pedidos(object):
         self.con.fechaConexao()
 
     def gerado(self):
-        self.gerado = Tk()
-        self.gerado.title('Clientes e Saldos')
-
-        self.t = Text(self.gerado)
-        self.t.pack()
+        self.confirmacao = Confirma()
+        self.confirmacao.muda()
 
 
             # atualizado 06/10/2018 . update e gravar pedido, terminados.
