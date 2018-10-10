@@ -1,7 +1,6 @@
 from tkinter import *
 from custom import *
 from connection import Conecta
-from confirma_acao import Confirma
 import time
 
 class Pedidos(object):
@@ -129,15 +128,24 @@ class Pedidos(object):
         self.l6 = Label(self.c, text="", bg=color)
         self.l6.grid(row=13, column=1, columnspan=2, padx=4)
 
+        self.l7 = Label(self.c, text="", bg=color)
+        self.l7.grid(row=14, column=1, columnspan=2, padx=4)
+
+        self.l7 = Label(self.c, text="", bg=color, fg="white", font=font3)
+        self.l7.grid(row=15, column=1, columnspan=5, padx=5)
+
+        self.l8 = Label(self.c, text="", bg=color)
+        self.l8.grid(row=16, column=1, columnspan=5, padx=4)
+
         self.b1 = Button(self.c, text='Grava')
         self.b1.bind('<Button-1>', self.gravapedido)
         self.b1.bind('<Return>', self.gravapedido)
-        self.b1.grid(row=14, column=1, padx=3)
+        self.b1.grid(row=16, column=1, padx=3)
 
         self.b2 = Button(self.c, text='Gera Pedido')
         self.b2.bind('<Button - 1>', self.gerapedido)
         self.b2.bind('<Return>', self.gerapedido)
-        self.b2.grid(row=14, column=3, padx=3)
+        self.b2.grid(row=16, column=3, padx=3)
 
 
     def gravapedido(self, event):
@@ -229,6 +237,7 @@ class Pedidos(object):
                         self.p.insereDadosPedidos(c, self.var4.get(), self.e5.get(), t)
                     else:
                         pass
+            self.gerado()
 
         else:
             if self.var.get() != "Escolha um produto":
@@ -249,11 +258,9 @@ class Pedidos(object):
                 pass
             self.gerado()
 
-        self.con.fechaConexao()
-
     def gerado(self):
-        self.confirmacao = Confirma()
-        self.confirmacao.muda()
+        time.sleep(0.5)
+        self.l7['text'] = "Pedido inserido com sucesso"
 
 
             # atualizado 06/10/2018 . update e gravar pedido, terminados.
