@@ -132,7 +132,7 @@ class principal(object):
 
 if __name__ == '__main__':
     i = Tk()
-    i.title('V 0.2')
+    i.title('Venta - Versão 0.3')
     i.resizable(False, False)
     principal(i)
     i.mainloop()

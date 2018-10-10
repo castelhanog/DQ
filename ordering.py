@@ -281,7 +281,7 @@ class Pedidos(object):
 
 if __name__ == '__main__':
     z = Tk()
-    z.title('V 0.2')
+    z.title('Venta - Versão 0.3')
     z.resizable(False, False)
     Pedidos(z)
     z.mainloop()
