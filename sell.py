@@ -30,7 +30,7 @@ class principal(object):
         self.e2 = Entry(self.a)
         self.e2.grid(row = 6, column = 2, pady = 3)
 
-        self.l5 = Label(self.a, text = "", bg = color, font = font2)
+        self.l5 = Label(self.a, text = "", bg = color, fg = "white", font = font2)
         self.l5['bg'] = color
         self.l5.grid(row = 7, column = 2, pady = 3)
 

@@ -259,6 +259,8 @@ class Pedidos(object):
             self.gerado()
 
     def gerado(self):
+        time.sleep(0.2)
+        self.l7['text'] = ""
         time.sleep(0.5)
         self.l7['text'] = "Pedido inserido com sucesso"
 
