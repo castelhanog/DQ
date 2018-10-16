@@ -55,11 +55,15 @@ class principal(object):
         t = time.strftime("%x, %X")
 
         c = c.upper()
+        v = float(v.replace(',', '.'))
 
-        if v.isnumeric():
-            v = float(v.replace(',','.'))
+        if type(v) == float:
+            v = v
         else:
             v = None
+
+        print(v)
+        print(type(v))
 
         self.v = Conecta()
         self.dados = self.v.ledados("SELECT cliente FROM cliente_saldo")
@@ -110,8 +114,7 @@ class principal(object):
                         saldo1 = h[0]  # precisa fazer esse for pra tirar o resultado da tupla (verificar melhora no código)
                     saldo1 = float(saldo1)
                     saldo1 -= float(v)
-                    nv = str(saldo1)
-                    self.v.executaUpdate("UPDATE cliente_saldo SET saldo = ? WHERE cliente = ?", (nv, c,))
+                    self.v.executaUpdate("UPDATE cliente_saldo SET saldo = ? WHERE cliente = ?", (saldo1, c,))
                     self.v.fechaConexao()
                     time.sleep(0.3)
                     self.l5['text'] = 'Subtraído o valor de R$ %.2f para cliente: %s' % (v, c)
