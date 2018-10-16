@@ -55,31 +55,37 @@ class principal(object):
         t = time.strftime("%x, %X")
 
         c = c.upper()
-        v = float(v.replace(',','.'))
+
+        if v.isnumeric():
+            v = float(v.replace(',','.'))
+        else:
+            v = None
 
         self.v = Conecta()
         self.dados = self.v.ledados("SELECT cliente FROM cliente_saldo")
 
-        if self.dados == []:
-            self.v.insereDadosVendas(c, v, t)
-            self.v.fechaConexao()
-        else:
-            for i in self.dados:
-                if c in i:
-                    saldo = self.v.ledados("SELECT saldo FROM cliente_saldo WHERE cliente = ?", (c,))
+        clientes = []
 
-                    for h in saldo:
-                        saldo1 = h[0] #precisa fazer esse for pra tirar o resultado da tupla (verificar melhora no código)
-                    saldo1 = float(saldo1)
-                    saldo1 += float(v)
-                    nv = str(saldo1)
-                    self.v.executaUpdate("UPDATE cliente_saldo SET saldo = ? WHERE cliente = ?", (nv, c,))
-                    self.v.fechaConexao()
-                    time.sleep(0.3)
-                    self.l5['text'] = 'Venda valor de R$ %.2f registrada para %s' % (v, c)
-                    break
-                elif c not in i:
-                    continue #break para para aqui se o if for verdadeiro, senão vai continuar (é errado)
+        for i in self.dados:
+            for g in i:
+                clientes.append(g)
+
+        if c not in clientes:
+            if v != None:
+                self.v.insereDadosVendas(c,v,t)
+                self.l5['text'] = 'Registrado o valor de R$ %.2f para cliente: %s' % (v, c)
+            else:
+                pass
+                self.l5['text'] = 'Valor inserido inválido'
+
+        else:
+            if v != None:
+                self.quantidade = float(self.v.transformaResultados(self.v.ledados('SELECT saldo FROM cliente_saldo WHERE cliente = ?',(c,))))
+                self.v.executaUpdate("UPDATE cliente_saldo SET saldo = ? WHERE cliente = ?", (str(v + self.quantidade), c,))
+                self.l5['text'] = 'Registrado o valor de R$ %.2f para cliente: %s' % (v, c)
+            else:
+                pass
+                self.l5['text'] = 'Valor inserido inválido'
 
     def abate(self, event):
         c = self.e1.get()

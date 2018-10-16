@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="4ac3e9b0-67f3-4b2c-9bcf-cd84d055dd84" name="Default" comment="+ ordering">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/confirma_acao.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/db.db" beforeDir="false" afterPath="$PROJECT_DIR$/db.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ordering.py" beforeDir="false" afterPath="$PROJECT_DIR$/ordering.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sell.py" beforeDir="false" afterPath="$PROJECT_DIR$/sell.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -58,24 +57,26 @@
     <session id="-1394117990">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="5" />
+          <entry key="project.closed" value="9" />
           <entry key="project.open.time.15" value="1" />
           <entry key="project.open.time.17" value="1" />
-          <entry key="project.open.time.18" value="2" />
+          <entry key="project.open.time.18" value="3" />
+          <entry key="project.open.time.19" value="1" />
           <entry key="project.open.time.20" value="1" />
-          <entry key="project.open.time.22" value="1" />
-          <entry key="project.opened" value="6" />
+          <entry key="project.open.time.21" value="1" />
+          <entry key="project.open.time.22" value="2" />
+          <entry key="project.opened" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="4856" />
+          <entry key="py" value="5704" />
           <entry key="txt" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="4856" />
+          <entry key="Python" value="5704" />
           <entry key="Scratch" value="5" />
         </counts>
       </usages-collector>
@@ -105,39 +106,26 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ordering.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4590">
-              <caret line="255" column="30" selection-start-line="255" selection-start-column="30" selection-end-line="255" selection-end-column="30" />
+            <state relative-caret-position="186">
+              <caret line="175" column="48" selection-start-line="175" selection-start-column="41" selection-end-line="175" selection-end-column="48" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
-                <marker date="1539141233347" expanded="true" signature="11365:11374" ph="..." />
-                <marker date="1539141233347" expanded="true" signature="11365:11450" ph="..." />
+                <marker date="1539228809242" expanded="true" signature="11766:11781" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sell.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1234">
-              <caret line="134" column="31" selection-start-line="134" selection-start-column="31" selection-end-line="134" selection-end-column="31" />
+            <state relative-caret-position="180">
+              <caret line="82" column="142" selection-start-line="82" selection-start-column="142" selection-end-line="82" selection-end-column="142" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/open.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="125" column="23" lean-forward="true" selection-start-line="125" selection-start-column="23" selection-end-line="125" selection-end-column="23" />
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -146,8 +134,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/connection.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1296">
-              <caret line="72" column="32" selection-start-line="72" selection-start-column="32" selection-end-line="72" selection-end-column="32" />
+            <state relative-caret-position="-738">
+              <caret line="31" column="12" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="12" />
               <folding>
                 <marker date="1538864986123" expanded="true" signature="1876:1881" ph="..." />
                 <marker date="1538864986123" expanded="true" signature="2828:2940" ph="..." />
@@ -180,9 +168,11 @@
       <find>self.c</find>
       <find>conec</find>
       <find>self.c.fe</find>
+      <find>transfo</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
+    <option name="UPDATE_TYPE" value="REBASE" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
@@ -195,9 +185,9 @@
         <option value="$PROJECT_DIR$/criação do banco" />
         <option value="$PROJECT_DIR$/connection.py" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch.txt" />
-        <option value="$PROJECT_DIR$/sell.py" />
-        <option value="$PROJECT_DIR$/ordering.py" />
         <option value="$PROJECT_DIR$/confirma_acao.py" />
+        <option value="$PROJECT_DIR$/ordering.py" />
+        <option value="$PROJECT_DIR$/sell.py" />
       </list>
     </option>
   </component>
@@ -226,7 +216,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -238,12 +227,13 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="TEXT" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Language Defaults" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -257,7 +247,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.ordering">
+  <component name="RunManager" selected="Python.open">
     <configuration name="confirma_acao" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="DQ" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -286,9 +276,9 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="C:\Users\guilherme\PycharmProjects\DQ\venv\Scripts\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/open.py" />
@@ -372,9 +362,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.open" />
         <item itemvalue="Python.ordering" />
         <item itemvalue="Python.confirma_acao" />
-        <item itemvalue="Python.open" />
         <item itemvalue="Python.sell" />
         <item itemvalue="Python.order" />
       </list>
@@ -664,7 +654,14 @@
       <option name="project" value="LOCAL" />
       <updated>1539139687314</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="+ ordering">
+      <created>1539141685457</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1539141685457</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TodoView">
@@ -680,12 +677,12 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49828178" visible="true" weight="0.12961012" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49828178" weight="0.12961012" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24959083" />
       <window_info id="Favorites" order="2" sideWeight="0.5017182" side_tool="true" weight="0.24190938" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49947312" visible="true" weight="0.30694142" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49947312" visible="true" weight="0.30694142" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39696312" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -700,6 +697,27 @@
       <window_info anchor="right" id="Data View" order="3" />
       <window_info anchor="right" x="571" y="58" width="138" height="867" id="Code Outline" order="4" visible="true" weight="0.11165048" />
     </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49828178" visible="true" weight="0.12961012" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.24959083" />
+      <window_info id="Favorites" order="2" sideWeight="0.5017182" side_tool="true" weight="0.24190938" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49947312" visible="true" weight="0.30694142" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39696312" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32871974" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50052685" side_tool="true" weight="0.30694142" />
+      <window_info anchor="bottom" id="Python Console" order="8" weight="0.32972324" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.3298731" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.3298731" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Data View" order="3" />
+      <window_info anchor="right" x="571" y="58" width="138" height="867" id="Code Outline" order="4" visible="true" weight="0.11165048" />
+    </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -757,20 +775,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sell.py">
+    <entry file="file://$PROJECT_DIR$/confirma_acao.py" />
+    <entry file="file://$PROJECT_DIR$/open.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1234">
-          <caret line="134" column="31" selection-start-line="134" selection-start-column="31" selection-end-line="134" selection-end-column="31" />
+        <state relative-caret-position="87">
+          <caret line="125" column="23" selection-start-line="125" selection-start-column="23" selection-end-line="125" selection-end-column="23" />
           <folding>
-            <element signature="e#0#21#0" expanded="true" />
+            <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/connection.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1296">
-          <caret line="72" column="32" selection-start-line="72" selection-start-column="32" selection-end-line="72" selection-end-column="32" />
+        <state relative-caret-position="-738">
+          <caret line="31" column="12" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="12" />
           <folding>
             <marker date="1538864986123" expanded="true" signature="1876:1881" ph="..." />
             <marker date="1538864986123" expanded="true" signature="2828:2940" ph="..." />
@@ -778,27 +797,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/confirma_acao.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/open.py">
+    <entry file="file://$PROJECT_DIR$/ordering.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="125" column="23" lean-forward="true" selection-start-line="125" selection-start-column="23" selection-end-line="125" selection-end-column="23" />
+        <state relative-caret-position="186">
+          <caret line="175" column="48" selection-start-line="175" selection-start-column="41" selection-end-line="175" selection-end-column="48" />
           <folding>
-            <element signature="e#0#11#0" expanded="true" />
+            <element signature="e#0#21#0" expanded="true" />
+            <marker date="1539228809242" expanded="true" signature="11766:11781" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ordering.py">
+    <entry file="file://$PROJECT_DIR$/sell.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4590">
-          <caret line="255" column="30" selection-start-line="255" selection-start-column="30" selection-end-line="255" selection-end-column="30" />
+        <state relative-caret-position="180">
+          <caret line="82" column="142" selection-start-line="82" selection-start-column="142" selection-end-line="82" selection-end-column="142" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
-            <marker date="1539141233347" expanded="true" signature="11365:11374" ph="..." />
-            <marker date="1539141233347" expanded="true" signature="11365:11450" ph="..." />
           </folding>
         </state>
       </provider>
